@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import ScrollReveal from "@/components/ScrollReveal";
+import ParallaxParcels from "@/components/ParallaxParcels";
 
 /* ── types ── */
 interface PartnerStat {
@@ -362,32 +363,20 @@ const PartnerDirectory = () => {
   );
 
   return (
-    <div className="bg-background min-h-screen pt-24">
+    <div className="bg-background min-h-screen">
       {/* ── Hero ── */}
-      <section className="bg-white py-8 md:py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h1
-            className="text-3xl font-bold mb-3"
-            style={{ color: "#101155" }}
-          >
+      <div className="relative bg-brand overflow-hidden pt-24 md:pt-40 pb-32 flex flex-col items-center justify-center text-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#101155] via-[#1e22aa] to-[#2e32d4] z-0"></div>
+        <ParallaxParcels />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-6">
             The Parcelis Partner Ecosystem
           </h1>
-          <p
-            className="text-lg max-w-2xl mx-auto mb-5"
-            style={{ color: "#4B5563" }}
-          >
-            Vetted service providers offering exclusive benefits to
-            Parcelis-protected merchants.
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light">
+            Vetted service providers offering exclusive benefits to Parcelis-protected merchants.
           </p>
-          <span
-            className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium"
-            style={{ backgroundColor: "#EFF6FF", color: "#1E22AA" }}
-          >
-            <CheckCircle className="h-3.5 w-3.5" />
-            {partners.length} Verified Partners
-          </span>
         </div>
-      </section>
+      </div>
 
       {/* ── Filter / Search Bar ── */}
       <section className="sticky top-0 z-30 bg-white border-b border-[hsl(220,13%,91%)]">
