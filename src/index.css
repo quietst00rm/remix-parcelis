@@ -1500,3 +1500,57 @@ All colors MUST be HSL.
   scrollbar-width: thin;
   scrollbar-color: #d1d5db transparent;
 }
+
+/* Blog print styles */
+@media print {
+  nav,
+  footer,
+  .print\\:hidden,
+  aside,
+  [role="progressbar"] {
+    display: none !important;
+  }
+
+  .blog-prose {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  body {
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  .blog-prose h2,
+  .blog-prose h3 {
+    color: #000 !important;
+  }
+
+  .blog-prose p {
+    color: #222 !important;
+  }
+
+  .blog-prose table {
+    border: 1px solid #999;
+  }
+
+  .blog-prose thead tr {
+    background: #333 !important;
+    color: #fff !important;
+  }
+
+  .blog-prose a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  .blog-prose a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  .hidden.print\\:block {
+    display: block !important;
+  }
+}
