@@ -53,7 +53,6 @@ const App: React.FC = () => {
                   <Route path="/partner-with-us" element={<PartnerPage />} />
                   <Route path="/our-partners" element={<OurPartnersPage />} />
                   <Route path="/blog" element={<BlogIndexPage />} />
-                  <Route path="/blog/compare/:slug" element={<BlogPostPage isComparison />} />
                   <Route path="/blog/:slug" element={<BlogPostPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

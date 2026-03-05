@@ -60,7 +60,7 @@ function buildComparisonToc(data: ComparisonData): TocItem[] {
   ];
 }
 
-const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
+const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
 
@@ -89,7 +89,7 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
     );
   }
 
-  const postUrl = isComparison ? `/blog/compare/${post.slug}` : `/blog/${post.slug}`;
+  const postUrl = `/blog/${post.slug}`;
   const canonicalUrl = `https://myparcelis.com${postUrl}`;
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",

@@ -6,7 +6,7 @@ interface BlogPostCardProps {
 }
 
 const BlogPostCard = ({ post }: BlogPostCardProps) => {
-  const route = post.isComparison ? `/blog/compare/${post.slug}` : `/blog/${post.slug}`;
+  const route = `/blog/${post.slug}`;
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

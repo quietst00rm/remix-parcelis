@@ -38,7 +38,7 @@ const RelatedComparisons = ({ currentSlug, currentTags }: RelatedComparisonsProp
 };
 
 const RelatedCard = ({ post }: { post: BlogPost }) => {
-  const route = `/blog/compare/${post.slug}`;
+  const route = `/blog/${post.slug}`;
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
