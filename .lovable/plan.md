@@ -1,37 +1,54 @@
 
 
-# Replace Our Partners Hero with Standard Site Banner
+## SEO URL Structure Analysis
 
-## What changes
+Based on SEO research, here's the recommendation:
 
-Replace the current white hero section (lines 365-390) in `PartnerDirectory.tsx` with the same gradient + ParallaxParcels hero pattern used on About, How It Works, Pricing, and other pages. No CTA buttons.
+**Use a flat `/blog/[slug]` structure for all posts** -- no category subdirectories.
 
-## Implementation
+**Why flat wins here:**
+- For a blog with fewer than ~1,000 pages, category subdirectories provide negligible topical authority benefit
+- Flat URLs keep maximum link equity one hop from the domain root
+- Google treats subdirectories as organizational hints, not ranking signals -- topical authority comes from internal linking and content quality, not folder nesting
+- Simpler structure avoids future maintenance headaches (what if a post belongs to multiple categories? what if categories rename?)
+- The category signal is already conveyed through the page content, schema markup, and internal linking
 
-### 1. Add ParallaxParcels import
-Add `import ParallaxParcels from "@/components/ParallaxParcels";` at the top of `PartnerDirectory.tsx`.
+The current `/blog/compare/[slug]` pattern also uses "compare" while the category is called "comparisons" -- inconsistent. Going flat eliminates this mismatch entirely.
 
-### 2. Replace the hero section (lines 365-390)
-Remove the current white `<section>` hero and replace with:
+## Implementation Plan
 
-```tsx
-<div className="relative bg-brand overflow-hidden pt-24 md:pt-40 pb-32 flex flex-col items-center justify-center text-center">
-  <div className="absolute inset-0 bg-gradient-to-br from-[#101155] via-[#1e22aa] to-[#2e32d4] z-0"></div>
-  <ParallaxParcels />
-  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-6">
-      The Parcelis Partner Ecosystem
-    </h1>
-    <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light">
-      Vetted service providers offering exclusive benefits to Parcelis-protected merchants.
-    </p>
-  </div>
-</div>
-```
+### 1. Remove the `/blog/compare/:slug` route
 
-### 3. Remove `pt-24` from outer wrapper
-The current outer div has `pt-24` (line 365) which was needed for the white hero. The new banner handles its own top padding, so remove it — change to just `min-h-screen` (matching how other pages work where the hero pulls up behind the navbar).
+In `src/App.tsx`, delete the dedicated comparison route. All posts (comparison and general) will be served by `/blog/:slug`.
 
-### 4. Remove unused CheckCircle import
-The "Verified Partners" pill badge is removed with the old hero, so `CheckCircle` can be removed from the lucide imports if not used elsewhere in the file.
+### 2. Update all internal link generation
+
+Four files currently build `/blog/compare/` URLs:
+
+- **`BlogPostCard.tsx`** -- remove the ternary, always use `/blog/${post.slug}`
+- **`RelatedComparisons.tsx`** -- change route to `/blog/${post.slug}`
+- **`BlogPostPage.tsx`** -- remove the `isComparison` prop logic, always use `/blog/${post.slug}` for `postUrl` and `canonicalUrl`
+- **`BlogBreadcrumbs.tsx`** -- no changes needed (it receives `postUrl` as a prop)
+
+### 3. Update `BlogPostPage` component
+
+- Remove the `isComparison` prop entirely
+- Detect comparison posts by checking `post.comparisonData` (already done with `hasComparisonData`)
+- This means the same component handles both post types at the same route pattern
+
+### 4. Update SEO assets
+
+- **`public/sitemap.xml`** -- change all `/blog/compare/` URLs to `/blog/`
+- **`BlogBreadcrumbs.tsx`** -- update the JSON-LD domain references from `parcelis-draft.lovable.app` to `myparcelis.com` for consistency
+
+### 5. Remove `isComparison` from data model (optional cleanup)
+
+The `isComparison` boolean on `BlogPost` becomes redundant since we can derive it from `!!post.comparisonData`. Can keep it for convenience or remove it -- minimal impact either way.
+
+### Files changed
+- `src/App.tsx` (remove one route)
+- `src/components/blog/BlogPostCard.tsx` (simplify link)
+- `src/components/blog/RelatedComparisons.tsx` (simplify link)
+- `src/pages/BlogPostPage.tsx` (remove `isComparison` prop, flatten URL logic)
+- `public/sitemap.xml` (update comparison post URLs)
 
