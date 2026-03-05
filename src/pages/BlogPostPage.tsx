@@ -2,8 +2,10 @@ import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { getPostBySlug } from "@/data/blogPosts";
+import type { ComparisonData } from "@/data/blogPosts";
 import BlogBreadcrumbs from "@/components/blog/BlogBreadcrumbs";
 import BlogPostContent from "@/components/blog/BlogPostContent";
+import ComparisonPostContent from "@/components/blog/ComparisonPostContent";
 import BlogSidebar from "@/components/blog/BlogSidebar";
 import BlogMobileToc from "@/components/blog/BlogMobileToc";
 import AiSummarizeWidget from "@/components/blog/AiSummarizeWidget";
@@ -28,10 +30,43 @@ function extractToc(html: string): TocItem[] {
   return items;
 }
 
+function buildComparisonToc(data: ComparisonData): TocItem[] {
+  const { appA, appB } = data;
+  return [
+    { id: "quick-verdict", text: "Quick Verdict", level: 2 },
+    { id: "at-a-glance", text: `${appA.name} vs ${appB.name} at a Glance`, level: 2 },
+    { id: `${appA.slug}-deep-dive`, text: `${appA.name}: Deep Dive`, level: 2 },
+    { id: `how-${appA.slug}-works`, text: `How ${appA.name} Works`, level: 3 },
+    { id: `${appA.slug}-pricing`, text: "Pricing", level: 3 },
+    { id: `${appA.slug}-strengths`, text: "Strengths", level: 3 },
+    { id: `${appA.slug}-weaknesses`, text: "Weaknesses", level: 3 },
+    { id: `${appB.slug}-deep-dive`, text: `${appB.name}: Deep Dive`, level: 2 },
+    { id: `how-${appB.slug}-works`, text: `How ${appB.name} Works`, level: 3 },
+    { id: `${appB.slug}-pricing`, text: "Pricing", level: 3 },
+    { id: `${appB.slug}-strengths`, text: "Strengths", level: 3 },
+    { id: `${appB.slug}-weaknesses`, text: "Weaknesses", level: 3 },
+    { id: "trade-offs", text: "Trade-Offs That Matter", level: 2 },
+    { id: "pricing-model", text: "Pricing Model", level: 3 },
+    { id: "risk-liability", text: "Risk & Liability", level: 3 },
+    { id: "support-claims", text: "Support & Claims", level: 3 },
+    { id: "technology-integration", text: "Technology", level: 3 },
+    { id: "what-comparison-pages-wont-tell-you", text: "What Others Won't Tell You", level: 2 },
+    { id: "bottom-line", text: "The Bottom Line", level: 2 },
+    { id: "faq", text: "FAQ", level: 2 },
+  ];
+}
+
 const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
-  const toc = useMemo(() => (post ? extractToc(post.content) : []), [post]);
+
+  const hasComparisonData = !!(post?.comparisonData);
+
+  const toc = useMemo(() => {
+    if (!post) return [];
+    if (hasComparisonData && post.comparisonData) return buildComparisonToc(post.comparisonData);
+    return extractToc(post.content);
+  }, [post, hasComparisonData]);
 
   if (!post) {
     return (
@@ -51,6 +86,7 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
   }
 
   const postUrl = isComparison ? `/blog/compare/${post.slug}` : `/blog/${post.slug}`;
+  const canonicalUrl = `https://myparcelis.com${postUrl}`;
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -62,11 +98,11 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
       <Helmet>
         <title>{post.title} | Parcelis Blog</title>
         <meta name="description" content={post.metaDescription} />
-        <link rel="canonical" href={`https://parcelis-draft.lovable.app${postUrl}`} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.metaDescription} />
         <meta property="og:image" content={post.featuredImage} />
-        <meta property="og:url" content={`https://parcelis-draft.lovable.app${postUrl}`} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
@@ -115,14 +151,24 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
           <BlogMobileToc toc={toc} />
           <div className="flex gap-12">
             <div className="flex-1 min-w-0">
-              <BlogPostContent content={post.content} />
+              {hasComparisonData && post.comparisonData ? (
+                <ComparisonPostContent
+                  data={post.comparisonData}
+                  postTitle={post.title}
+                  postDescription={post.metaDescription}
+                  postDate={post.date}
+                  postUrl={postUrl}
+                />
+              ) : (
+                <BlogPostContent content={post.content} />
+              )}
             </div>
-            <BlogSidebar toc={toc} articleUrl={`https://myparcelis.com${postUrl}`} />
+            <BlogSidebar toc={toc} articleUrl={canonicalUrl} />
           </div>
 
           {/* Mobile AI Summary */}
           <div className="lg:hidden">
-            <AiSummarizeWidget articleUrl={`https://myparcelis.com${postUrl}`} layout="mobile" />
+            <AiSummarizeWidget articleUrl={canonicalUrl} layout="mobile" />
           </div>
         </div>
       </section>

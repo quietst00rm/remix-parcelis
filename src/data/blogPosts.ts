@@ -1,3 +1,48 @@
+export interface ComparisonApp {
+  name: string;
+  slug: string;
+  rating: number;
+  reviewCount: number;
+  pricingModel: string;
+  pricingSummary: string;
+  modelType: string;
+  riskBearer: string;
+  supportType: string;
+  keyStrengths: string[];
+  keyWeaknesses: string[];
+  bestFor: string;
+  integrations: string[];
+  appStoreUrl: string;
+}
+
+export interface ComparisonData {
+  appA: ComparisonApp;
+  appB: ComparisonApp;
+  quickVerdict: string;
+  tradeoffs: {
+    pricing: string;
+    risk: string;
+    support: string;
+    technology: string;
+  };
+  categoryFraming: string;
+  faqs: { question: string; answer: string }[];
+  /** Content paragraphs for each deep-dive subsection */
+  appAContent: {
+    howItWorks: string;
+    strengths: string;
+    weaknesses: string;
+    bestFor: string;
+  };
+  appBContent: {
+    howItWorks: string;
+    strengths: string;
+    weaknesses: string;
+    bestFor: string;
+  };
+  conclusion: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -13,9 +58,124 @@ export interface BlogPost {
   metaDescription: string;
   tags: string[];
   isComparison: boolean;
+  comparisonData?: ComparisonData;
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "route-vs-navidium",
+    title: "Route vs Navidium: Full-Service Protection vs Self-Insurance for Shopify",
+    excerpt: "An in-depth comparison of Route and Navidium covering pricing models, risk exposure, claim handling, and which approach actually protects your bottom line.",
+    category: "Comparisons",
+    categorySlug: "comparisons",
+    author: "Sarah Chen",
+    date: "2026-03-04",
+    readTime: "12 min read",
+    featuredImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop",
+    metaDescription: "Route vs Navidium comparison for Shopify merchants. Compare full-service shipping protection with self-insurance models, pricing, risk, and claims handling.",
+    tags: ["comparison", "route", "navidium", "shipping protection", "shopify", "self-insurance"],
+    isComparison: true,
+    comparisonData: {
+      appA: {
+        name: "Route",
+        slug: "route",
+        rating: 3.5,
+        reviewCount: 2147,
+        pricingModel: "Premium capture",
+        pricingSummary: "Route collects 100% of the shipping protection premium from customers at checkout. Merchants receive no share of the premium revenue. Route keeps the full amount to fund claims and profit. Free to install, but merchants see zero revenue from the protection offering.",
+        modelType: "Full-service (third-party managed)",
+        riskBearer: "Route (third-party insurer)",
+        supportType: "AI-first support with chatbot handling initial claims",
+        keyStrengths: [
+          "Large brand presence and consumer recognition",
+          "Covers lost, stolen, and damaged packages",
+          "Free to install with no monthly fees",
+          "Automated tracking and claims portal"
+        ],
+        keyWeaknesses: [
+          "Merchants earn $0 from protection premiums",
+          "24-month contract lock-in reported by merchants",
+          "3.5 star rating suggests mixed merchant satisfaction",
+          "AI chatbot-first support can frustrate customers",
+          "Route-branded experience, not white-labeled"
+        ],
+        bestFor: "Merchants who want a hands-off protection solution and are comfortable giving up all premium revenue in exchange for zero claim liability.",
+        integrations: ["Shopify", "Shopify Plus", "BigCommerce", "Magento"],
+        appStoreUrl: "https://apps.shopify.com/route"
+      },
+      appB: {
+        name: "Navidium",
+        slug: "navidium",
+        rating: 4.9,
+        reviewCount: 687,
+        pricingModel: "Self-insurance (merchant keeps 100%)",
+        pricingSummary: "Navidium charges a monthly subscription ($29.99-$99.99/mo depending on plan tier). Merchants keep 100% of the shipping protection premiums collected from customers. However, merchants are also responsible for paying all claims out of pocket.",
+        modelType: "Self-insurance platform",
+        riskBearer: "Merchant (self-insured)",
+        supportType: "Email and help center support",
+        keyStrengths: [
+          "Merchants retain 100% of premium revenue",
+          "4.9 star rating with strong merchant satisfaction",
+          "Full control over protection pricing and terms",
+          "No long-term contracts"
+        ],
+        keyWeaknesses: [
+          "Merchant bears 100% of claim risk and cost",
+          "Monthly subscription fee regardless of volume",
+          "High-value claims can wipe out months of premium revenue",
+          "No external insurance backing",
+          "Requires merchants to handle claims themselves"
+        ],
+        bestFor: "Low-AOV merchants with very low claim rates who want to profit from premiums and are comfortable self-funding all claims.",
+        integrations: ["Shopify", "Shopify Plus"],
+        appStoreUrl: "https://apps.shopify.com/navidium-shipping-protection"
+      },
+      quickVerdict: "Route and Navidium represent opposite ends of the shipping protection spectrum. Route handles everything but keeps all premium revenue and locks merchants into long contracts. Navidium lets merchants keep 100% of premiums but exposes them to unlimited claim liability. Neither model gives merchants both revenue and risk protection simultaneously.",
+      tradeoffs: {
+        pricing: "Route is free to install but captures 100% of premium revenue from customers, meaning merchants earn nothing from protection. Navidium charges $29.99-$99.99/month in subscription fees but lets merchants keep all premiums collected. The real cost comparison depends on your order volume and claim rate: at scale, Navidium's model can be more profitable, but one bad month of claims can erase months of premium revenue.",
+        risk: "This is the defining trade-off. Route transfers all claim risk to a third party, so merchants never pay for replacements or refunds. Navidium puts 100% of claim risk on the merchant. For a store doing 5,000 orders/month with a $75 AOV and 2% claim rate, that's $7,500/month in potential claim liability with Navidium. With Route, that liability is zero, but so is the revenue.",
+        support: "Route uses an AI chatbot as the first line of support for claims, which has drawn criticism from merchants whose customers prefer human interaction. Navidium provides email-based support, but since merchants self-insure, they ultimately handle their own claims. Neither offers the kind of dedicated human support that premium merchants expect.",
+        technology: "Both apps integrate with Shopify natively. Route offers a more polished consumer-facing experience with branded tracking pages and a mobile app. Navidium focuses on the merchant backend with analytics dashboards showing premium revenue and claim costs. Route's technology advantage comes at the cost of merchant branding, as the protection experience is Route-branded."
+      },
+      categoryFraming: "Most comparison articles frame shipping protection as a choice between Route and Navidium. But this framing misses a critical third option: real insurance backing that transfers risk away from the merchant while still letting them profit from premiums. The Route vs Navidium debate creates a false binary between giving up all revenue (Route) or absorbing all risk (Navidium).",
+      appAContent: {
+        howItWorks: "Route integrates into your Shopify checkout as an add-on protection option. When a customer opts in, Route collects the premium and provides coverage for lost, stolen, and damaged packages. If an issue occurs, the customer files a claim through Route's portal, where an AI chatbot handles the initial triage. Route manages the entire claims process and pays out approved claims.",
+        strengths: "Route's primary value proposition is simplicity. Merchants install the app, and Route handles everything from premium collection to claims resolution. There's no financial risk to the merchant, and the integration is straightforward.",
+        weaknesses: "The biggest concern for merchants is the revenue model. Route keeps 100% of the premium, meaning the merchant provides the customer base and checkout real estate while Route captures all the value. Multiple merchant reviews mention the 24-month contract lock-in as a frustration, especially when they discover the zero-revenue model after installation.",
+        bestFor: "Route makes the most sense for merchants who genuinely want zero involvement in shipping protection. If you never want to think about claims, premiums, or protection analytics, Route handles it all. The trade-off is purely financial."
+      },
+      appBContent: {
+        howItWorks: "Navidium takes the opposite approach. Instead of transferring risk to an insurer, Navidium gives merchants a platform to self-insure. Merchants set their own protection prices, collect premiums directly, and handle claims themselves. Navidium provides the checkout widget, analytics dashboard, and claim management tools, but the financial responsibility stays with the merchant.",
+        strengths: "The appeal of Navidium is obvious: keep 100% of the premiums. For merchants with low claim rates and low average order values, the math can work out favorably. The 4.9-star rating reflects strong satisfaction among merchants who fit this profile.",
+        weaknesses: "Self-insurance is a bet that your claim costs will stay below your premium revenue. This bet fails when claim rates spike due to carrier issues, seasonal volume, or shipping to high-theft areas. A single month of elevated claims can eliminate several months of accumulated premium profit. There's no safety net.",
+        bestFor: "Navidium is well-suited for merchants shipping low-value, low-risk items with historically low claim rates (under 1%). If your AOV is under $30 and your products are rarely damaged in transit, self-insurance can be a reasonable bet."
+      },
+      conclusion: "The Route vs Navidium debate highlights a fundamental gap in the shipping protection market. Merchants should not have to choose between earning zero revenue (Route) and absorbing unlimited risk (Navidium). The ideal solution transfers claim risk externally while still giving merchants a meaningful share of premium revenue. Before committing to either option, consider whether a third path might offer the best of both worlds.",
+      faqs: [
+        {
+          question: "Can I switch from Route to Navidium without losing data?",
+          answer: "Yes, both Route and Navidium are standalone Shopify apps. You can uninstall one and install the other without losing your store data. However, any active protection policies from Route will not transfer to Navidium. Customers who purchased Route protection will still need to file claims through Route for those orders."
+        },
+        {
+          question: "What happens if I have a high-claim month with Navidium?",
+          answer: "With Navidium's self-insurance model, you are responsible for paying all claims out of your own revenue. If you experience a spike in claims due to carrier issues, weather events, or porch piracy, you could face claim costs that exceed the premiums you collected. There is no external insurance to absorb excess losses."
+        },
+        {
+          question: "Does Route really lock merchants into 24-month contracts?",
+          answer: "Multiple Shopify App Store reviews mention long-term contracts with Route, though specific terms may vary. It is important to read the full terms of service before installing. Some merchants have reported difficulty canceling before their contract term ends. Always confirm the contract length and cancellation policy in writing before committing."
+        },
+        {
+          question: "Which app has better customer support for claim issues?",
+          answer: "Route primarily uses AI chatbots for initial claim handling, which some merchants and customers find frustrating for complex issues. Navidium provides email-based support for the platform itself, but since merchants self-insure, they handle their own claim decisions and customer communications. Neither currently offers dedicated phone support for claims."
+        },
+        {
+          question: "Is there a shipping protection option where merchants earn revenue without bearing all the risk?",
+          answer: "Yes. Parcelis offers a model where real insurance from The Hartford backs all claims (removing merchant risk) while merchants set their own protection pricing and keep the markup. This combines the risk transfer of Route with the revenue potential of Navidium, without monthly fees or long-term contracts."
+        }
+      ]
+    },
+    content: "", // Content is rendered from comparisonData
+  },
   {
     slug: "parcelis-vs-route-shipping-protection",
     title: "Parcelis vs Route: Which Shipping Protection Platform Is Right for Your Store?",
