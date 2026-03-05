@@ -10,6 +10,7 @@ import BlogSidebar from "@/components/blog/BlogSidebar";
 import BlogMobileToc from "@/components/blog/BlogMobileToc";
 import AiSummarizeWidget from "@/components/blog/AiSummarizeWidget";
 import RelatedComparisons from "@/components/blog/RelatedComparisons";
+import RelatedArticles from "@/components/blog/RelatedArticles";
 import SocialShareBar from "@/components/blog/SocialShareBar";
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import BackToTopButton from "@/components/blog/BackToTopButton";
@@ -119,7 +120,7 @@ const BlogPostPage = () => {
 
       {/* Header area */}
       <div className="bg-[#f8f9fc] pt-28 md:pt-36 pb-8 md:pb-12">
-        <div className="container mx-auto px-4 max-w-[1100px]">
+        <div className="container mx-auto px-5 max-w-[1180px]">
           <BlogBreadcrumbs
             category={post.category}
             categorySlug={post.categorySlug}
@@ -146,18 +147,13 @@ const BlogPostPage = () => {
               {post.category}
             </span>
           </div>
-          <img
-            src={post.featuredImage}
-            alt={`${post.title} - featured image`}
-            className="w-full max-h-[400px] object-cover rounded-lg"
-            loading="eager"
-          />
+          {/* Featured image moved inside article content */}
         </div>
       </div>
 
       {/* Content area */}
       <section className="bg-white py-10 md:py-14">
-        <div className="container mx-auto px-4 max-w-[1100px]">
+        <div className="container mx-auto px-5 max-w-[1180px]">
           <BlogMobileToc toc={toc} />
           <div className="flex gap-12">
             <div className="flex-1 min-w-0">
@@ -168,9 +164,15 @@ const BlogPostPage = () => {
                   postDescription={post.metaDescription}
                   postDate={post.date}
                   postUrl={postUrl}
+                  featuredImage={post.featuredImage}
+                  featuredImageAlt={`${post.title} - featured image`}
                 />
               ) : (
-                <BlogPostContent content={post.content} />
+                <BlogPostContent
+                  content={post.content}
+                  featuredImage={post.featuredImage}
+                  featuredImageAlt={`${post.title} - featured image`}
+                />
               )}
 
               {/* Share bar - static horizontal row between content and related */}
@@ -178,9 +180,11 @@ const BlogPostPage = () => {
                 <SocialShareBar title={post.title} url={canonicalUrl} />
               </div>
 
-              {/* Related comparisons for comparison posts */}
-              {hasComparisonData && (
+              {/* Related content */}
+              {hasComparisonData ? (
                 <RelatedComparisons currentSlug={post.slug} currentTags={post.tags} />
+              ) : (
+                <RelatedArticles currentSlug={post.slug} currentCategory={post.categorySlug} />
               )}
             </div>
             <BlogSidebar toc={toc} articleUrl={canonicalUrl} />

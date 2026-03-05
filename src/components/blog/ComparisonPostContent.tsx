@@ -14,6 +14,8 @@ interface ComparisonPostContentProps {
   postDescription: string;
   postDate: string;
   postUrl: string;
+  featuredImage?: string;
+  featuredImageAlt?: string;
 }
 
 const StarRating = ({ rating, count }: { rating: number; count: number }) => (
@@ -30,6 +32,8 @@ const ComparisonPostContent = ({
   postDescription,
   postDate,
   postUrl,
+  featuredImage,
+  featuredImageAlt,
 }: ComparisonPostContentProps) => {
   const { appA, appB } = data;
 
@@ -91,7 +95,7 @@ const ComparisonPostContent = ({
   ];
 
   return (
-    <article className="blog-prose max-w-[720px]">
+    <article className="blog-prose max-w-[760px]">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -112,6 +116,16 @@ const ComparisonPostContent = ({
           </p>
         </div>
       </section>
+
+      {/* Featured image between Quick Verdict and At a Glance */}
+      {featuredImage && (
+        <img
+          src={featuredImage}
+          alt={featuredImageAlt || "Featured image"}
+          className="w-full max-h-[360px] object-cover rounded-lg border border-[#e5e7eb] shadow-sm my-8"
+          loading="eager"
+        />
+      )}
 
       {/* Section 2: At a Glance Table */}
       <section>

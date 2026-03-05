@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
     author: "Parcelis Team",
     date: "2026-03-04",
     readTime: "12 min read",
-    featuredImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop",
+    featuredImage: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&h=450&fit=crop",
     metaDescription: "Route vs Navidium comparison for Shopify merchants. Compare full-service shipping protection with self-insurance models, pricing, risk, and claims handling.",
     tags: ["comparison", "route", "navidium", "shipping protection", "shopify", "self-insurance"],
     isComparison: true,
@@ -234,7 +234,7 @@ export const blogPosts: BlogPost[] = [
     author: "Parcelis Team",
     date: "2026-02-20",
     readTime: "7 min read",
-    featuredImage: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&h=450&fit=crop",
+    featuredImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&h=450&fit=crop",
     metaDescription: "Parcelis vs Navidium comparison: full-service vs self-insured shipping protection. Learn which model works best for your Shopify store.",
     tags: ["comparison", "navidium", "self-insured", "shipping protection"],
     isComparison: true,
@@ -300,14 +300,14 @@ export const blogPosts: BlogPost[] = [
     author: "Parcelis Team",
     date: "2026-03-01",
     readTime: "5 min read",
-    featuredImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=450&fit=crop",
+    featuredImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
     metaDescription: "Discover how shipping protection reduces Shopify chargebacks by up to 40%. Step-by-step guide for merchants to protect revenue.",
     tags: ["chargebacks", "guides", "shopify", "revenue protection"],
     isComparison: false,
     content: `
 <h2 id="chargeback-problem">The Chargeback Problem</h2>
 <p>Chargebacks cost e-commerce merchants billions every year. Beyond the lost revenue from the original order, merchants face chargeback fees ($20–$100 per dispute), increased processing rates, and the risk of losing their payment processing entirely.</p>
-<p>Shipping-related chargebacks—"item not received" (INR) claims—account for nearly 30% of all e-commerce chargebacks. This is where shipping protection makes a measurable difference.</p>
+<p>Shipping-related chargebacks, specifically "item not received" (INR) claims, account for nearly 30% of all e-commerce chargebacks. This is where shipping protection makes a measurable difference.</p>
 
 <h2 id="how-protection-helps">How Shipping Protection Reduces Chargebacks</h2>
 <p>When customers have a clear, fast path to resolve shipping issues, they don't need to file chargebacks. Shipping protection provides that path by offering instant claim resolution for lost, stolen, or damaged packages.</p>
@@ -331,7 +331,7 @@ export const blogPosts: BlogPost[] = [
     author: "Parcelis Team",
     date: "2026-03-03",
     readTime: "4 min read",
-    featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
+    featuredImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=450&fit=crop",
     metaDescription: "Discover the top 5 shipping protection trends for 2026. AI claims, embedded insurance, and more insights for Shopify merchants.",
     tags: ["trends", "industry news", "2026", "ai", "shipping protection"],
     isComparison: false,
