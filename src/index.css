@@ -1406,3 +1406,78 @@ All colors MUST be HSL.
     height: 28px;
   }
 }
+
+/* Blog prose styles */
+.blog-prose p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.blog-prose h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.blog-prose h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-prose a {
+  color: #1e22aa;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-prose a:hover {
+  color: #151885;
+}
+
+.blog-prose strong {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.blog-prose thead tr {
+  background-color: #1e22aa;
+  color: #ffffff;
+}
+
+.blog-prose th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.blog-prose td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.blog-prose tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.blog-prose tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
