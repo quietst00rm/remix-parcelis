@@ -1481,3 +1481,22 @@ All colors MUST be HSL.
 .blog-prose tbody tr:nth-child(odd) {
   background-color: #ffffff;
 }
+
+/* Blog TOC scrollbar */
+.blog-toc-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.blog-toc-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.blog-toc-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+.blog-toc-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
