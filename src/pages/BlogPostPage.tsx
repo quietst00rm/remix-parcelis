@@ -9,6 +9,10 @@ import ComparisonPostContent from "@/components/blog/ComparisonPostContent";
 import BlogSidebar from "@/components/blog/BlogSidebar";
 import BlogMobileToc from "@/components/blog/BlogMobileToc";
 import AiSummarizeWidget from "@/components/blog/AiSummarizeWidget";
+import RelatedComparisons from "@/components/blog/RelatedComparisons";
+import SocialShareBar from "@/components/blog/SocialShareBar";
+import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
+import BackToTopButton from "@/components/blog/BackToTopButton";
 
 interface TocItem {
   id: string;
@@ -95,6 +99,10 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
 
   return (
     <>
+      <ReadingProgressBar />
+      <SocialShareBar title={post.title} url={canonicalUrl} />
+      <BackToTopButton />
+
       <Helmet>
         <title>{post.title} | Parcelis Blog</title>
         <meta name="description" content={post.metaDescription} />
@@ -122,9 +130,11 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
           <h1 className="font-heading text-2xl md:text-4xl font-bold text-[#1a1a2e] mb-4 max-w-[800px]">
             {post.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-[#6b7280] mb-6">
+          {/* Print-only canonical URL */}
+          <p className="hidden print:block text-xs text-[#6b7280] mb-2">{canonicalUrl}</p>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-[#6b7280] mb-6 print:mb-4">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-[#1e22aa] flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-7 h-7 rounded-full bg-[#1e22aa] flex items-center justify-center text-white text-xs font-bold print:hidden">
                 {post.author.charAt(0)}
               </div>
               <span className="font-medium text-[#1a1a2e]">{post.author}</span>
@@ -133,14 +143,15 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
             <time dateTime={post.date}>{formattedDate}</time>
             <span>·</span>
             <span>{post.readTime}</span>
-            <span className="bg-[#1e22aa]/10 text-[#1e22aa] text-xs font-semibold px-2.5 py-1 rounded-full">
+            <span className="bg-[#1e22aa]/10 text-[#1e22aa] text-xs font-semibold px-2.5 py-1 rounded-full print:hidden">
               {post.category}
             </span>
           </div>
           <img
             src={post.featuredImage}
-            alt={post.title}
+            alt={`${post.title} - featured image`}
             className="w-full max-h-[400px] object-cover rounded-lg"
+            loading="eager"
           />
         </div>
       </div>
@@ -162,6 +173,16 @@ const BlogPostPage = ({ isComparison = false }: { isComparison?: boolean }) => {
               ) : (
                 <BlogPostContent content={post.content} />
               )}
+
+              {/* Related comparisons for comparison posts */}
+              {post.isComparison && (
+                <RelatedComparisons currentSlug={post.slug} currentTags={post.tags} />
+              )}
+
+              {/* Mobile share bar */}
+              <div className="lg:hidden">
+                <SocialShareBar title={post.title} url={canonicalUrl} />
+              </div>
             </div>
             <BlogSidebar toc={toc} articleUrl={canonicalUrl} />
           </div>
