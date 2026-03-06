@@ -1486,15 +1486,31 @@ All colors MUST be HSL.
 .blog-prose [data-theme="dark"] h2,
 .blog-prose [data-theme="dark"] h3,
 .blog-prose [data-theme="dark"] p,
-.blog-prose [data-theme="dark"] a,
 .blog-prose [data-theme="dark"] strong,
 .blog-prose [data-theme="dark"] li,
 .blog-prose [data-theme="dark"] span {
   color: inherit !important;
 }
 
+.blog-prose [data-theme="dark"] a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 .blog-prose [data-theme="dark"] a:hover {
   color: inherit !important;
+}
+
+.blog-prose [data-theme="dark"] a[data-btn="primary"] {
+  color: #1e22aa !important;
+}
+
+.blog-prose [data-theme="dark"] a[data-btn="secondary"] {
+  color: #ffffff !important;
+}
+
+.blog-prose [data-theme="dark"] a[data-btn="link"] {
+  color: #4FC3F7 !important;
 }
 
 /* Blog TOC scrollbar */
