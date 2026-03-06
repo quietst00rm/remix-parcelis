@@ -271,7 +271,8 @@ const ComparisonPostContent = ({
               href="https://apps.shopify.com/parcelis"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-[#1e22aa] font-semibold rounded-lg px-6 py-3 hover:shadow-lg hover:scale-[1.02] transition-all duration-150 text-sm min-h-[44px]"
+              data-btn="primary"
+              className="inline-flex items-center justify-center gap-2 bg-white font-semibold rounded-lg px-6 py-3 hover:shadow-lg hover:scale-[1.02] transition-all duration-150 text-sm min-h-[44px]"
             >
               Install Free on Shopify
               <ExternalLink className="w-3.5 h-3.5" />
@@ -280,7 +281,8 @@ const ComparisonPostContent = ({
               href="https://myparcelis.com/calculate"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-transparent border border-white text-white rounded-lg px-6 py-3 hover:bg-white/10 transition-all duration-150 text-sm font-semibold min-h-[44px]"
+              data-btn="secondary"
+              className="inline-flex items-center justify-center gap-2 bg-transparent border border-white rounded-lg px-6 py-3 hover:bg-white/10 transition-all duration-150 text-sm font-semibold min-h-[44px]"
             >
               Calculate Your Revenue
             </a>
@@ -289,7 +291,8 @@ const ComparisonPostContent = ({
             href="https://apps.shopify.com/parcelis"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm text-[#4FC3F7] hover:underline mt-3"
+            data-btn="link"
+            className="inline-block text-sm hover:underline mt-3"
           >
             View on Shopify App Store
           </a>
