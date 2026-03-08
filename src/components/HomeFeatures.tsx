@@ -68,7 +68,7 @@ const HomeFeatures: React.FC = () => {
             return (
               <div
                 key={f.title}
-                className={`bg-white border border-ds-neutral-200 rounded-2xl p-6 md:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] hover:border-transparent transition-all duration-300 flex flex-col ${
+                className={`bg-white border border-ds-neutral-200 rounded-2xl p-6 md:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] hover:border-transparent transition-all duration-300 flex flex-col ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{

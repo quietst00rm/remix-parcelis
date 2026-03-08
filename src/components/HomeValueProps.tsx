@@ -79,7 +79,7 @@ const HomeValueProps: React.FC = () => {
                   {card.heading}
                 </h3>
                 <div className="flex items-baseline gap-2 mb-5">
-                  <span className="text-[32px] font-bold text-ds-teal leading-none">
+                  <span className="text-[30px] font-bold text-ds-teal leading-none">
                     {card.stat}
                   </span>
                   <span className="text-[14px] text-ds-neutral-500 font-medium">
