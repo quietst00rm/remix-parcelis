@@ -100,8 +100,8 @@ const HomeTrust: React.FC = () => {
                 >
                   <Icon size={24} className="text-ds-primary-light" />
                 </div>
-                <h3 className="text-[20px] font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-[15px] text-white/60 leading-[1.6] mb-6">{item.text}</p>
+                <h3 className="font-heading text-[20px] font-semibold text-white leading-[1.3] mb-3">{item.title}</h3>
+                <p className="font-dm text-[15px] text-white/60 leading-[1.6] mb-6">{item.text}</p>
                 <div className="mt-auto border border-white/20 rounded-full px-4 py-2 text-[10px] font-bold text-white tracking-widest uppercase">
                   {item.badge}
                 </div>

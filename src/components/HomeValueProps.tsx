@@ -85,7 +85,7 @@ const HomeValueProps: React.FC = () => {
                 </div>
 
                 {/* Body */}
-                <p className="text-[15px] text-ds-neutral-700 leading-[1.6]">
+                <p className="font-dm text-[15px] text-ds-neutral-700 leading-[1.6]">
                   {card.body}
                 </p>
               </div>

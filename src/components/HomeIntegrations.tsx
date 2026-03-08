@@ -34,8 +34,7 @@ const HomeIntegrations: React.FC = () => {
         <p className="font-dm text-[16px] md:text-[18px] text-ds-neutral-500 leading-[1.7] max-w-[620px] mx-auto text-center mb-14">
           Connect Parcelis to your platform in minutes.
         </p>
-          Seamlessly Integrated
-        </h2>
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {INTEGRATIONS.map((item) => {
