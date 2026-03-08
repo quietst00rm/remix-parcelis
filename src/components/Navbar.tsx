@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
         <div className="w-full max-w-[1440px] mx-auto pl-[40px] pr-[40px]" style={{ overflow: 'visible' }}>
            <div className="flex items-center justify-between h-[76px]">
             {/* Logo */}
-            <Link to="/" className="flex-shrink-0" aria-label="PARCELIS Home">
+            <Link to="/" className="flex-shrink-0 min-w-[120px]" aria-label="PARCELIS Home">
               <img
                 src={isTransparent ? logoWhite : logo}
                 alt="PARCELIS Logo"
