@@ -2,7 +2,14 @@ import React from "react";
 
 const HomeTestimonials: React.FC = () => {
   return (
-    <section className="bg-ds-neutral-50" style={{ padding: "96px 0" }}>
+    <section
+      className="relative"
+      style={{
+        background: "radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.03) 0%, transparent 50%), #F8FAFC",
+        paddingTop: "96px",
+        paddingBottom: "96px",
+      }}
+    >
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] text-center mb-14">
           Trusted by Growing Brands

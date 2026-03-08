@@ -39,8 +39,12 @@ const HomeValueProps: React.FC = () => {
 
   return (
     <section
-      className="bg-ds-neutral-50 py-24"
-      style={{ paddingTop: "96px", paddingBottom: "96px" }}
+      className="relative"
+      style={{
+        background: "radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.03) 0%, transparent 50%), #F8FAFC",
+        paddingTop: "72px",
+        paddingBottom: "96px",
+      }}
     >
       <div ref={ref} className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

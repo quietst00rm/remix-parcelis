@@ -52,9 +52,7 @@ const FooterLink: React.FC<{ to: string; external?: boolean; children: React.Rea
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-ds-surface-dark">
-      {/* Top separator line */}
-      <div className="w-full h-px bg-white/10" />
+    <footer className="bg-ds-surface-dark" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
 
       <div className="max-w-[1200px] mx-auto px-6 pt-16 pb-10">
         {/* 4-column grid */}

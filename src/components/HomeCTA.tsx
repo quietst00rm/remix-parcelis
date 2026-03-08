@@ -2,23 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle } from "lucide-react";
 
+const NOISE_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
+
 const HomeCTA: React.FC = () => {
   return (
     <section
       className="relative overflow-hidden"
       style={{
         background: "linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%)",
-        padding: "96px 0",
       }}
     >
+      {/* ── Top wave (from #F8FAFC above) ──────────────────────── */}
+      <div className="absolute top-0 left-0 right-0 z-[2]">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px] block">
+          <path d="M0,0 L0,40 Q720,0 1440,40 L1440,0 Z" fill="#F8FAFC" />
+        </svg>
+      </div>
+
       {/* Noise overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "256px 256px",
-        }}
+        style={{ backgroundImage: NOISE_SVG, backgroundRepeat: "repeat", backgroundSize: "256px 256px" }}
       />
 
       {/* Teal radial glow */}
@@ -34,7 +38,10 @@ const HomeCTA: React.FC = () => {
       <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-white/[0.03] blur-3xl pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[600px] mx-auto px-6 text-center">
+      <div
+        className="relative z-10 max-w-[600px] mx-auto px-6 text-center"
+        style={{ paddingTop: "120px", paddingBottom: "96px" }}
+      >
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-white leading-[1.2] mb-5">
           Ready to Protect Your Customers?
         </h2>
