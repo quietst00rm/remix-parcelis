@@ -1,45 +1,95 @@
-import React from 'react';
-import { Clock, ShieldCheck } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { Clock, ShieldCheck } from "lucide-react";
+
+const CARDS = [
+  {
+    icon: Clock,
+    heading: "Zero Hassle",
+    stat: "0 minutes",
+    statSuffix: "merchant involvement",
+    body: "Zero merchant involvement in claims. Direct customers to our portal and never think about it again.",
+  },
+  {
+    icon: ShieldCheck,
+    heading: "Protect Customers",
+    stat: "5-7 days",
+    statSuffix: "claim resolution",
+    body: "Comprehensive coverage including porch piracy with fast claim resolution.",
+  },
+];
+
+function useScrollReveal() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return { ref, visible };
+}
 
 const HomeValueProps: React.FC = () => {
+  const { ref, visible } = useScrollReveal();
+
   return (
-    <div className="py-24 bg-gray-50/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="bg-ds-neutral-50 py-24"
+      style={{ paddingTop: "96px", paddingBottom: "96px" }}
+    >
+      <div ref={ref} className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Card 1 */}
-          <div className="bg-white rounded-2xl p-10 md:p-12 shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
-             <div className="mb-6 group-hover:scale-105 transition-transform origin-left">
-                <Clock className="w-12 h-12 text-brand" strokeWidth={1.5} />
-             </div>
-             <h3 className="text-2xl font-bold text-slate-900 mb-2">Zero Hassle</h3>
-             <div className="flex items-baseline gap-2 mb-6">
-                 <span className="text-4xl font-extrabold text-brand">0 minutes</span>
-                 <span className="text-gray-500 font-medium text-sm">merchant involvement</span>
-             </div>
-             <p className="text-gray-600 leading-relaxed text-lg">
-                Zero merchant involvement in claims. Direct customers to our portal and never think about it again.
-             </p>
-          </div>
+          {CARDS.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={card.heading}
+                className={`bg-white rounded-2xl p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-[2px] transition-all duration-300 ${
+                  visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-5"
+                }`}
+                style={{
+                  transitionDelay: visible ? `${i * 100}ms` : "0ms",
+                  transitionProperty: "opacity, transform, box-shadow",
+                  transitionDuration: "500ms, 500ms, 300ms",
+                }}
+              >
+                {/* Icon container */}
+                <div className="w-14 h-14 rounded-xl bg-ds-neutral-100 flex items-center justify-center mb-5">
+                  <Icon size={28} className="text-ds-primary" />
+                </div>
 
-          {/* Card 2 */}
-          <div className="bg-white rounded-2xl p-10 md:p-12 shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
-             <div className="mb-6 group-hover:scale-105 transition-transform origin-left">
-                <ShieldCheck className="w-12 h-12 text-brand" strokeWidth={1.5} />
-             </div>
-             <h3 className="text-2xl font-bold text-slate-900 mb-2">Protect Customers</h3>
-             <div className="flex items-baseline gap-2 mb-6">
-                 <span className="text-4xl font-extrabold text-brand">5-7 days</span>
-                 <span className="text-gray-500 font-medium text-sm">claim resolution</span>
-             </div>
-             <p className="text-gray-600 leading-relaxed text-lg">
-                Comprehensive coverage including porch piracy with fast claim resolution.
-             </p>
-          </div>
+                {/* Heading */}
+                <h3 className="text-[22px] font-semibold text-ds-neutral-900 mb-2">
+                  {card.heading}
+                </h3>
 
+                {/* Highlighted stat */}
+                <div className="flex items-baseline gap-2 mb-5">
+                  <span className="text-[32px] font-bold text-ds-teal leading-none">
+                    {card.stat}
+                  </span>
+                  <span className="text-[14px] text-ds-neutral-500 font-medium">
+                    {card.statSuffix}
+                  </span>
+                </div>
+
+                {/* Body */}
+                <p className="text-[16px] text-ds-neutral-700 leading-[1.6]">
+                  {card.body}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
