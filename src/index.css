@@ -264,18 +264,16 @@ All colors MUST be HSL.
 }
 
 /* Live indicator pulse */
-@keyframes live-pulse {
+@keyframes livePulse {
   0%, 100% {
-    transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(1.5);
     opacity: 0.4;
   }
 }
 .live-dot {
-  animation: live-pulse 2s ease-in-out infinite;
+  animation: livePulse 2s ease-in-out infinite;
 }
 
 @layer components {
