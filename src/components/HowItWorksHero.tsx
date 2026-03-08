@@ -11,7 +11,7 @@ const HowItWorksHero: React.FC = () => {
       }}
     >
       <div
-        className="relative min-h-[400px] md:min-h-[480px] flex flex-col items-center justify-center pt-[76px] pb-28 md:pb-32"
+        className="relative min-h-[400px] md:min-h-[480px] flex flex-col items-center pt-[200px] md:pt-[220px] pb-28 md:pb-32"
       >
         {/* Noise */}
         <div
