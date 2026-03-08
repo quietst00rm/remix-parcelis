@@ -20,11 +20,8 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PARCELIS - Shipping Insurance That Protects Customers & Streamlines Operations</title>
-    <meta
-      name="description"
-      content="Licensed shipping insurance backed by The Hartford. Zero merchant involvement in claims. Protect customers from lost, damaged, and stolen packages with 5-7 day resolution."
-    />
+    <title>PARCELIS - Shipping Insurance That Protects Customers &amp; Streamlines Operations</title>
+    <meta name="description" content="Licensed shipping insurance backed by The Hartford. Zero merchant involvement in claims. Protect customers from lost, damaged, and stolen packages with 5-7 day resolution.">
     <meta
       name="keywords"
       content="shipping insurance, package protection, e-commerce insurance, Shopify insurance, porch piracy coverage, licensed insurance, automated claims, customer protection, WooCommerce insurance"
@@ -36,12 +33,9 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.myparcelis.com" />
-    <meta property="og:title" content="PARCELIS - Licensed Shipping Insurance for E-Commerce" />
-    <meta
-      property="og:description"
-      content="Protect your customers and streamline operations. Licensed coverage backed by The Hartford with zero merchant involvement in claims."
-    />
-    <meta property="og:image" content="https://www.myparcelis.com/og-image.png" />
+    
+    
+    <meta property="og:image" content="https://www.myparcelis.com/og-image.png">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
@@ -49,15 +43,12 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://www.myparcelis.com" />
-    <meta name="twitter:title" content="PARCELIS - Licensed Shipping Insurance for E-Commerce" />
-    <meta
-      name="twitter:description"
-      content="Zero hassle. Real insurance. Protect customers from lost, damaged, and stolen packages."
-    />
-    <meta name="twitter:image" content="https://www.myparcelis.com/twitter-image.png" />
+    
+    
+    <meta name="twitter:image" content="https://www.myparcelis.com/og-image.png">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -73,7 +64,51 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Tailwind CDN -->
-    <!-- Tailwind is handled by Vite/PostCSS build -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                DEFAULT: '#1e22aa',
+                dark: '#151885',
+                light: '#e8e9ff',
+                50: '#f0f1ff',
+                100: '#e0e2ff',
+                900: '#101155',
+                footer: '#1c206e',
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              blob: 'blob 7s infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(24px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
     <style>
       html, body { margin: 0; padding: 0; }
       body { font-family: 'Inter', sans-serif; }
@@ -93,7 +128,11 @@
       }
       .pulsating-thumb::-webkit-slider-thumb { animation: pulse-ring 2s infinite; }
     </style>
-  </head>
+    <meta property="og:title" content="PARCELIS - Shipping Insurance That Protects Customers &amp; Streamlines Operations">
+  <meta name="twitter:title" content="PARCELIS - Shipping Insurance That Protects Customers &amp; Streamlines Operations">
+  <meta property="og:description" content="Licensed shipping insurance backed by The Hartford. Zero merchant involvement in claims. Protect customers from lost, damaged, and stolen packages with 5-7 day resolution.">
+  <meta name="twitter:description" content="Licensed shipping insurance backed by The Hartford. Zero merchant involvement in claims. Protect customers from lost, damaged, and stolen packages with 5-7 day resolution.">
+</head>
 
   <body>
     <div id="root"></div>
