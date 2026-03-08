@@ -70,7 +70,7 @@ const HomeValueProps: React.FC = () => {
                 </div>
 
                 {/* Heading */}
-                <h3 className="text-[22px] font-semibold text-ds-neutral-900 mb-2">
+                <h3 className="font-heading text-[20px] font-semibold text-ds-neutral-900 leading-[1.3] mb-2">
                   {card.heading}
                 </h3>
 
@@ -85,7 +85,7 @@ const HomeValueProps: React.FC = () => {
                 </div>
 
                 {/* Body */}
-                <p className="text-[15px] text-ds-neutral-700 leading-[1.6]">
+                <p className="font-dm text-[15px] text-ds-neutral-700 leading-[1.6]">
                   {card.body}
                 </p>
               </div>

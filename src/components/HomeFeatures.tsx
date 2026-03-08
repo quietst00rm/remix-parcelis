@@ -60,7 +60,7 @@ const HomeFeatures: React.FC = () => {
             <br />
             Automation That Saves Time.
           </h2>
-          <p className="text-[18px] text-ds-neutral-500 leading-[1.7] max-w-[640px] mx-auto">
+          <p className="font-dm text-[16px] md:text-[18px] text-ds-neutral-500 leading-[1.7] max-w-[620px] mx-auto">
             From checkout to claim resolution, Parcelis ensures a smooth, worry-free experience for both merchants and customers.
           </p>
         </div>
@@ -87,12 +87,12 @@ const HomeFeatures: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-[20px] font-semibold text-ds-neutral-900 mb-3">
+                <h3 className="font-heading text-[20px] font-semibold text-ds-neutral-900 leading-[1.3] mb-3">
                   {f.title}
                 </h3>
 
                 {/* Body */}
-                <p className="text-[15px] text-ds-neutral-700 leading-[1.6]">
+                <p className="font-dm text-[15px] text-ds-neutral-700 leading-[1.6]">
                   {f.text}
                 </p>
               </div>

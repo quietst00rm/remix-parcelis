@@ -28,9 +28,13 @@ const HomeIntegrations: React.FC = () => {
   return (
     <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
       <div className="max-w-[1200px] mx-auto px-6">
-        <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] text-center mb-14">
+        <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] text-center mb-4">
           Seamlessly Integrated
         </h2>
+        <p className="font-dm text-[16px] md:text-[18px] text-ds-neutral-500 leading-[1.7] max-w-[620px] mx-auto text-center mb-14">
+          Connect Parcelis to your platform in minutes.
+        </p>
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {INTEGRATIONS.map((item) => {

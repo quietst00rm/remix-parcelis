@@ -28,7 +28,7 @@ const HomeTestimonials: React.FC = () => {
             </span>
 
             {/* Quote */}
-            <p className="text-[18px] italic text-ds-neutral-700 leading-[1.8] mt-8 mb-6">
+            <p className="font-dm text-[18px] italic text-ds-neutral-700 leading-[1.8] mt-8 mb-6">
               "Our customer service team used to spend hours dealing with lost package claims. Now with PARCELIS, those issues are handled automatically and our customers are happier than ever."
             </p>
 
