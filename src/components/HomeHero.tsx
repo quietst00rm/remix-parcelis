@@ -118,7 +118,7 @@ const HomeHero: React.FC = () => {
 
       {/* Stats bar */}
       <div className="relative z-20 -mt-8 sm:-mt-10 md:-mt-[48px] pb-8 px-5 sm:px-6">
-        <div className="max-w-[900px] mx-auto bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] px-6 py-8 md:px-12 md:py-10">
+        <div className="max-w-[900px] mx-auto bg-white rounded-2xl px-6 py-8 md:px-12 md:py-10" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05)" }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0">
             {STATS.map((stat, i) => (
               <StatItem key={stat.label} stat={stat} showDivider={i < STATS.length - 1} />
