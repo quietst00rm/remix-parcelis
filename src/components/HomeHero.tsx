@@ -44,7 +44,7 @@ const HomeHero: React.FC = () => {
     <section className="relative overflow-hidden -mt-[76px]">
       {/* Hero area */}
       <div
-        className="relative min-h-[480px] sm:min-h-[620px] flex flex-col items-center justify-center pt-[76px] pb-28 sm:pb-32 md:pb-40"
+        className="relative min-h-[520px] md:min-h-[640px] flex flex-col items-center justify-center pt-[160px] pb-20 sm:pb-24 md:pb-28"
         style={{
           background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 40%, #1E40AF 60%, #172554 100%)",
         }}
