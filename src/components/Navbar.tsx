@@ -285,7 +285,7 @@ const Navbar: React.FC = () => {
               href="https://claims.myparcelis.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center text-[16px] font-semibold px-5 py-3 rounded-xl border-2 border-ds-primary text-ds-primary hover:bg-ds-primary hover:text-white transition-all"
+              className="text-center text-[16px] font-medium px-5 py-3 rounded-xl border-[1.5px] border-ds-neutral-300 text-ds-neutral-700 hover:border-ds-neutral-400 transition-all"
               aria-label="File a Claim"
             >
               File a Claim
