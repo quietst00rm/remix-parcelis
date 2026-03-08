@@ -41,7 +41,7 @@ const STATS = [
 
 const HomeHero: React.FC = () => {
   return (
-    <section className="relative overflow-hidden -mt-[76px]">
+    <section className="relative overflow-x-clip -mt-[76px]">
       {/* Hero area */}
       <div
         className="relative min-h-[100svh] flex flex-col items-center justify-start pt-[160px] pb-[140px] md:pb-[160px]"
