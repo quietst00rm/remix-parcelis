@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import ScrollReveal from "@/components/ScrollReveal";
-import ParallaxParcels from "@/components/ParallaxParcels";
+
 
 /* ── types ── */
 interface PartnerStat {

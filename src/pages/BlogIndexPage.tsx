@@ -51,7 +51,8 @@ const BlogIndexPage = () => {
       </Helmet>
 
       <BlogHero />
-      <BlogFilterBar activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
+      <div id="blog-content">
+        <BlogFilterBar activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
 
       <section className="bg-[#F8FAFC] py-12">
         <div className="max-w-[1200px] mx-auto px-6">
