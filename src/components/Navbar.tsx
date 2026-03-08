@@ -223,85 +223,115 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Overlay */}
       <div
-        className={`fixed inset-0 z-50 bg-white transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-50 bg-[#0F172A] transition-transform lg:hidden flex flex-col ${
+          mobileOpen ? "translate-x-0 duration-300 ease-out" : "translate-x-full duration-200 ease-in"
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
       >
-        {/* Close Button */}
-        <div className="flex justify-end p-6">
+        {/* Top bar */}
+        <div className="flex items-center justify-between h-[76px] px-6 border-b border-white/10 flex-shrink-0">
+          <Link to="/" onClick={() => setMobileOpen(false)} aria-label="PARCELIS Home">
+            <img src={logoWhite} alt="PARCELIS Logo" className="h-10 w-auto" />
+          </Link>
           <button
             onClick={() => setMobileOpen(false)}
-            className="p-2 rounded-lg text-ds-neutral-700 hover:bg-ds-neutral-50 transition-colors focus:outline-none focus:ring-2 focus:ring-ds-primary-light focus:ring-offset-2"
+            className="w-11 h-11 flex items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none"
             aria-label="Close menu"
           >
-            <X size={28} />
+            <X size={24} />
           </button>
         </div>
 
-        {/* Mobile Links */}
-        <nav className="px-8 flex flex-col gap-1" aria-label="Mobile navigation links">
-          {NAV_LINKS.map((link) =>
-            link.children ? (
-              <div key={link.name}>
-                <span className="block text-[13px] font-semibold uppercase tracking-[0.05em] text-ds-neutral-400 px-3 pt-4 pb-2">
-                  {link.name}
-                </span>
-                {link.children.map((child) => (
-                  <Link
-                    key={child.path}
-                    to={child.path}
-                    onClick={() => setMobileOpen(false)}
-                    className={`block px-3 py-3 text-[20px] font-medium rounded-xl transition-colors ${
-                      isActive(child.path)
-                        ? "text-ds-primary bg-ds-neutral-50"
-                        : "text-ds-neutral-700 hover:text-ds-primary hover:bg-ds-neutral-50"
-                    }`}
-                  >
-                    {child.name}
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={() => setMobileOpen(false)}
-                className={`block px-3 py-3 text-[20px] font-medium rounded-xl transition-colors ${
-                  isActive(link.path)
-                    ? "text-ds-primary bg-ds-neutral-50"
-                    : "text-ds-neutral-700 hover:text-ds-primary hover:bg-ds-neutral-50"
-                }`}
-              >
-                {link.name}
-              </Link>
-            )
-          )}
+        {/* Nav Links */}
+        <nav className="flex-1 overflow-y-auto px-6 pt-8" aria-label="Mobile navigation links">
+          {/* Main links */}
+          {[
+            { name: "Home", path: "/" },
+            { name: "How It Works", path: "/how-it-works" },
+            { name: "Pricing", path: "/pricing" },
+            { name: "About", path: "/about" },
+          ].map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setMobileOpen(false)}
+              className={`block py-4 text-xl font-semibold transition-colors ${
+                isActive(link.path)
+                  ? "text-white border-l-[3px] border-[#3B82F6] pl-4"
+                  : "text-white/70 hover:text-white"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
 
-          {/* Mobile CTAs */}
-          <div className="mt-8 flex flex-col gap-3 px-3">
-            <a
-              href="https://claims.myparcelis.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-center text-[16px] font-medium px-5 py-3 rounded-xl border-[1.5px] border-ds-neutral-300 text-ds-neutral-700 hover:border-ds-neutral-400 transition-all"
-              aria-label="File a Claim"
+          <div className="border-t border-white/10 my-2" />
+
+          {/* Resources label */}
+          <span className="block text-xs uppercase tracking-widest text-[#3B82F6] font-semibold mt-6 mb-2">
+            Resources
+          </span>
+          {[
+            { name: "FAQ", path: "/faq" },
+            { name: "Blog", path: "/blog" },
+            { name: "Self-Insurance Risks", path: "/risk-calculator" },
+          ].map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setMobileOpen(false)}
+              className={`block py-3 pl-4 text-lg transition-colors ${
+                isActive(link.path)
+                  ? "text-white border-l-[3px] border-[#3B82F6]"
+                  : "text-white/60 hover:text-white"
+              }`}
             >
-              File a Claim
-            </a>
-            <a
-              href="https://apps.shopify.com/parcelis"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-center text-[16px] font-semibold px-5 py-3 rounded-xl bg-ds-primary text-white hover:bg-ds-primary-dark transition-all shadow-lg"
-              aria-label="Get Parcelis"
+              {link.name}
+            </Link>
+          ))}
+
+          <div className="border-t border-white/10 my-2" />
+
+          {/* Contact & File a Claim */}
+          {[
+            { name: "Contact", path: "/contact" },
+          ].map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setMobileOpen(false)}
+              className={`block py-4 text-xl font-semibold transition-colors ${
+                isActive(link.path)
+                  ? "text-white border-l-[3px] border-[#3B82F6] pl-4"
+                  : "text-white/70 hover:text-white"
+              }`}
             >
-              Get Parcelis
-            </a>
-          </div>
+              {link.name}
+            </Link>
+          ))}
+          <a
+            href="https://claims.myparcelis.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block py-4 text-xl font-semibold text-white/70 hover:text-white transition-colors"
+          >
+            File a Claim
+          </a>
         </nav>
+
+        {/* Bottom CTA */}
+        <div className="flex-shrink-0 px-6 pb-10 pt-4">
+          <a
+            href="https://apps.shopify.com/parcelis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-white text-[#1E3A8A] font-semibold py-4 rounded-xl text-lg text-center shadow-lg hover:shadow-xl transition-all"
+          >
+            Get Parcelis
+          </a>
+        </div>
       </div>
     </>
   );
