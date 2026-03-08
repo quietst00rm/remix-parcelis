@@ -331,7 +331,7 @@ const FAQPage = () => {
               <Link to="/contact">Contact Us</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/apply">Apply Now</Link>
+              <a href="https://apps.shopify.com/parcelis" target="_blank" rel="noopener noreferrer">Get Parcelis</a>
             </Button>
           </div>
         </div>

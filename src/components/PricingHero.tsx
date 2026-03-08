@@ -21,9 +21,9 @@ const PricingHero: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/apply" className="bg-white text-brand hover:bg-blue-50 font-bold py-3.5 px-8 rounded-lg shadow-lg transition-all transform hover:-translate-y-1">
-                Get Started Today
-            </Link>
+            <a href="https://apps.shopify.com/parcelis" target="_blank" rel="noopener noreferrer" className="bg-white text-brand hover:bg-blue-50 font-bold py-3.5 px-8 rounded-lg shadow-lg transition-all transform hover:-translate-y-1">
+                Get Parcelis
+            </a>
             <Link to="/how-it-works" className="bg-white/10 text-white hover:bg-white/20 font-bold py-3.5 px-8 rounded-lg transition-all">
                 See How It Works
             </Link>

@@ -12,7 +12,7 @@ const productLinks = [
 const companyLinks = [
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
-  { name: "Apply Now", path: "/apply" },
+  { name: "Get Parcelis", path: "https://apps.shopify.com/parcelis", external: true },
   { name: "Blog", path: "/blog" },
 ];
 

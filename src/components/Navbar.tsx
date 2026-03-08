@@ -290,14 +290,15 @@ const Navbar: React.FC = () => {
             >
               File a Claim
             </a>
-            <Link
-              to="/apply"
-              onClick={() => setMobileOpen(false)}
+            <a
+              href="https://apps.shopify.com/parcelis"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-center text-[16px] font-semibold px-5 py-3 rounded-xl bg-ds-primary text-white hover:bg-ds-primary-dark transition-all shadow-lg"
-              aria-label="Apply Now"
+              aria-label="Get Parcelis"
             >
-              Apply Now
-            </Link>
+              Get Parcelis
+            </a>
           </div>
         </nav>
       </div>

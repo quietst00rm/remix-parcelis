@@ -20,9 +20,9 @@ const ContactHero: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-5 justify-center">
-          <Link to="/apply" className="bg-white hover:bg-gray-100 text-[#1e22aa] font-bold py-4 px-10 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg">
-            Apply Now
-          </Link>
+          <a href="https://apps.shopify.com/parcelis" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-gray-100 text-[#1e22aa] font-bold py-4 px-10 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg">
+            Get Parcelis
+          </a>
           <Link to="/pricing" className="bg-white/10 text-white hover:bg-white/20 font-bold py-4 px-10 rounded-lg backdrop-blur-sm transition-all text-lg">
             View Pricing
           </Link>

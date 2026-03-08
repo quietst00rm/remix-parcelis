@@ -20,9 +20,9 @@ const PricingCTA: React.FC = () => {
         </p>
         
         <div className="flex flex-col items-center gap-6">
-            <Link to="/apply" className="bg-white text-brand hover:bg-blue-50 font-bold py-4 px-12 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg">
-                Apply Now
-            </Link>
+            <a href="https://apps.shopify.com/parcelis" target="_blank" rel="noopener noreferrer" className="bg-white text-brand hover:bg-blue-50 font-bold py-4 px-12 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg">
+                Get Parcelis
+            </a>
             <Link to="/how-it-works" className="text-white underline underline-offset-4 hover:text-blue-200 text-sm">
                 Or learn more about how it works
             </Link>
