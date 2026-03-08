@@ -4,12 +4,14 @@ import { CheckCircle } from "lucide-react";
 
 const HowItWorksHero: React.FC = () => {
   return (
-    <section className="relative overflow-hidden -mt-[76px]">
+    <section
+      className="relative overflow-x-clip -mt-[76px]"
+      style={{
+        background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #172554 100%)",
+      }}
+    >
       <div
         className="relative min-h-[400px] md:min-h-[480px] flex flex-col items-center justify-center pt-[76px] pb-28 md:pb-32"
-        style={{
-          background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #172554 100%)",
-        }}
       >
         {/* Noise */}
         <div
