@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Shield, Award, Clock, ChevronRight } from "lucide-react";
+import { Shield, Award, Clock } from "lucide-react";
 
 const ITEMS = [
   {
