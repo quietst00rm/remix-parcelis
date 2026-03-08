@@ -57,8 +57,8 @@ const PricingIntegrations: React.FC = () => {
         </div>
 
         <div className="mt-12">
-            <a href="/apply" className="inline-block bg-brand hover:bg-brand-dark text-white font-bold py-3.5 px-8 rounded-lg shadow-lg transition-colors">
-                Start Your Application
+            <a href="https://apps.shopify.com/parcelis" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#1E3A8A] hover:bg-[#172554] text-white font-semibold py-3.5 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px]">
+                Get Parcelis
             </a>
         </div>
 

@@ -1,33 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ParallaxParcels from './ParallaxParcels';
+import React from "react";
+import { Link } from "react-router-dom";
+
+const NOISE_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
 
 const ContactHero: React.FC = () => {
   return (
-    <div className="relative overflow-x-clip pt-24 md:pt-40 pb-32 flex flex-col items-center justify-center text-center" style={{ background: "linear-gradient(135deg, #101155 0%, #1e22aa 50%, #2e32d4 100%)" }}>
-      
-      {/* 3D Parcel Background */}
-      <ParallaxParcels />
+    <section
+      className="relative overflow-x-clip -mt-[76px]"
+      style={{
+        background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #172554 100%)",
+      }}
+    >
+      <div className="absolute inset-0 pointer-events-none z-[1]" style={{ backgroundImage: NOISE_SVG, backgroundRepeat: "repeat", backgroundSize: "256px 256px" }} />
+      <div className="absolute inset-0 pointer-events-none z-[1]" style={{ background: "radial-gradient(ellipse 60% 50% at 65% 40%, rgba(59,130,246,0.15) 0%, transparent 70%)" }} />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-8">
+      <div className="relative z-10 max-w-[720px] mx-auto px-6 text-center pt-[200px] md:pt-[220px] pb-28 md:pb-32 flex flex-col items-center">
+        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
           Get in Touch
         </h1>
-        
-        <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light mb-12">
-          Questions about PARCELIS? We're here to help.
+        <p className="text-lg text-white/70 mt-2 max-w-[580px] mx-auto leading-relaxed mb-9">
+          Questions about Parcelis? We're here to help.
         </p>
-
-        <div className="flex flex-col sm:flex-row gap-5 justify-center">
-          <a href="https://apps.shopify.com/parcelis" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-gray-100 text-[#1e22aa] font-bold py-4 px-10 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <a
+            href="https://apps.shopify.com/parcelis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-[#1E3A8A] font-semibold px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center"
+          >
             Get Parcelis
           </a>
-          <Link to="/pricing" className="bg-white/10 text-white hover:bg-white/20 font-bold py-4 px-10 rounded-lg backdrop-blur-sm transition-all text-lg">
+          <Link
+            to="/pricing"
+            className="border-2 border-white/30 text-white font-medium px-8 py-4 rounded-xl text-lg hover:bg-white/10 hover:border-white transition-all duration-200 w-full sm:w-auto text-center"
+          >
             View Pricing
           </Link>
         </div>
       </div>
-    </div>
+
+      <div className="absolute bottom-0 left-0 right-0 z-[2]">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[30px] sm:h-[40px] md:h-[60px] block">
+          <path d="M0,60 L0,20 Q720,60 1440,20 L1440,60 Z" fill="white" />
+        </svg>
+      </div>
+    </section>
   );
 };
 
