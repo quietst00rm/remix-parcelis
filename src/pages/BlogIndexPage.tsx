@@ -108,6 +108,7 @@ const BlogIndexPage = () => {
           )}
         </div>
       </section>
+      </div>
     </>
   );
 };
