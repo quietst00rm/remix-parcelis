@@ -1,51 +1,52 @@
 
 
-## Problem
+## Root Cause Analysis
 
-The "Fourth Option" conversion card on comparison blog posts has dark text on a dark blue background because the `.blog-prose` CSS rules in `index.css` apply `color: #374151` to `p`, `color: #1a1a2e` to `h3`/`strong`, and `color: #1e22aa` to `a` elements. The `not-prose` class has no effect here because the project uses custom CSS selectors (`.blog-prose p`, `.blog-prose h3`, etc.), not the Tailwind Typography plugin where `not-prose` is defined.
+I examined the hero at both 1920x1080 and 375x812 and identified the fundamental layout problem.
 
-This affects:
-1. The h3 heading ("Parcelis: Real Insurance...") — dark instead of white
-2. The paragraph/list text — dark instead of white  
-3. The "Calculate Your Revenue" button border text — link color override
-4. The "View on Shopify App Store" link — blue instead of cyan
+### The Core Bug: Three Conflicting Layout Strategies
 
-## Fix
-
-Add CSS exclusion rules in `src/index.css` so that `.blog-prose` color styles do not apply inside any element with `data-theme="dark"` (or a dedicated class). Then add that attribute to the Fourth Option card in `ComparisonPostContent.tsx`.
-
-### File 1: `src/index.css`
-
-Add scoped exclusions after the existing blog-prose rules. Every rule that sets a color gets a `:not()` exclusion for elements inside a `[data-theme="dark"]` container:
-
-```css
-/* Exclude dark-themed containers from blog prose color overrides */
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] p,
-[data-theme="dark"] a,
-[data-theme="dark"] strong,
-[data-theme="dark"] li,
-[data-theme="dark"] span {
-  color: inherit !important;
-}
-
-[data-theme="dark"] a:hover {
-  color: inherit !important;
-}
+The hero inner container (line 47 of `HomeHero.tsx`) uses:
+```text
+-mt-[76px]     → pulls section behind fixed nav
+pt-[160px]     → pushes content below nav
+justify-center → re-centers content in remaining space
+min-h-[640px]  → fixed minimum height
 ```
 
-### File 2: `src/components/blog/ComparisonPostContent.tsx`
+These fight each other:
+- `pt-[160px]` reserves 160px at the top for nav clearance
+- `justify-center` then centers content in the *remaining* space (640 - 160 - 112 = 368px), which pushes the headline right back up toward the nav
+- At 1920px desktop, 640px min-height is only 59% of the viewport — the hero looks stubby and cramped
+- At 375px mobile, content exceeds the min-height so the container grows unpredictably
 
-Add `data-theme="dark"` to the Fourth Option card div (line 254), so the CSS exclusion applies:
+The result: no matter how much top padding you add, `justify-center` undoes it by redistributing space. This is why every previous fix felt like a band-aid.
 
-```tsx
-<div data-theme="dark" className="not-prose bg-gradient-to-br from-[#1e22aa] to-[#1a1a6e] rounded-xl p-6 md:p-8 text-white mt-6 mb-6">
-```
+### Secondary Issue: Nav Padding
 
-This ensures all child text inside that card inherits white/cyan colors as specified by the inline Tailwind classes, rather than being overridden by the `.blog-prose` global styles.
+The nav uses `max-w-[1200px] mx-auto` with `px-5 sm:px-8 lg:px-12`. On viewports close to 1200px (like 1280px in the Lovable preview), the auto margins are tiny (~40px) and the inner padding isn't enough — the logo gets clipped at the left edge.
 
-### Files changed
-- `src/index.css` — add dark theme exclusion rules
-- `src/components/blog/ComparisonPostContent.tsx` — add `data-theme="dark"` attribute to card
+---
+
+## The Fix
+
+### 1. Hero Layout — Remove `justify-center`, use viewport-relative height
+
+- Remove `justify-center` from the hero gradient container
+- Change `min-h-[520px] md:min-h-[640px]` to `min-h-[100svh]` (full viewport height) so the hero always fills the screen
+- Keep `pt-[160px]` as the sole vertical positioning mechanism — content flows naturally from that point
+- Add `justify-start` so flex children stack from the top (after padding)
+- Increase `pb` to `pb-[140px] md:pb-[160px]` to leave room for the wave curve + stats bar overlap
+- The content block stays centered horizontally (`items-center` + `text-center`), but vertically it sits at a consistent distance below the nav
+- Add a flex-grow spacer `div` between the social proof line and the bottom, so the content naturally sits in the upper-center of the hero rather than being crammed at the top
+
+### 2. Nav Container — Full-bleed padding
+
+- Change the nav's inner container from `max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12` to use the full viewport width with consistent edge padding: `w-full px-6 sm:px-8 lg:px-12 xl:px-16 max-w-[1440px] mx-auto`
+- This ensures at least 24px padding on mobile, scaling up to 64px on large screens — logo will never clip regardless of viewport
+
+### Files Changed
+
+- `src/components/HomeHero.tsx` — Hero layout restructure
+- `src/components/Navbar.tsx` — Nav container padding fix
 
