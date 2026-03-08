@@ -49,7 +49,7 @@ const HomeValueProps: React.FC = () => {
             return (
               <div
                 key={card.heading}
-                className={`bg-white rounded-2xl p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-[2px] transition-all duration-300 ${
+                className={`bg-white rounded-2xl p-9 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-[3px] transition-all duration-300 ${
                   visible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-5"
@@ -61,8 +61,8 @@ const HomeValueProps: React.FC = () => {
                 }}
               >
                 {/* Icon container */}
-                <div className="w-14 h-14 rounded-xl bg-ds-neutral-100 flex items-center justify-center mb-5">
-                  <Icon size={28} className="text-ds-primary" />
+                <div className="w-[52px] h-[52px] rounded-xl bg-ds-neutral-100 flex items-center justify-center mb-5">
+                  <Icon size={24} className="text-ds-primary" />
                 </div>
 
                 {/* Heading */}
@@ -81,7 +81,7 @@ const HomeValueProps: React.FC = () => {
                 </div>
 
                 {/* Body */}
-                <p className="text-[16px] text-ds-neutral-700 leading-[1.6]">
+                <p className="text-[15px] text-ds-neutral-700 leading-[1.6]">
                   {card.body}
                 </p>
               </div>

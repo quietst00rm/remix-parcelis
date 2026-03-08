@@ -59,19 +59,19 @@ const HomeFeatures: React.FC = () => {
         </div>
 
         {/* Grid */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {FEATURES.map((f, i) => {
             const Icon = f.icon;
             return (
               <div
                 key={f.title}
-                className={`bg-white border border-ds-neutral-200 rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] transition-all duration-300 flex flex-col ${
+                className={`bg-white border border-ds-neutral-200 rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] hover:border-transparent transition-all duration-300 flex flex-col ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{
                   transitionDelay: visible ? `${i * 100}ms` : "0ms",
-                  transitionProperty: "opacity, transform, box-shadow",
-                  transitionDuration: "500ms, 500ms, 300ms",
+                  transitionProperty: "opacity, transform, box-shadow, border-color",
+                  transitionDuration: "500ms, 500ms, 300ms, 300ms",
                 }}
               >
                 {/* Icon */}
@@ -80,12 +80,12 @@ const HomeFeatures: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-[22px] font-semibold text-ds-neutral-900 mb-3">
+                <h3 className="text-[20px] font-semibold text-ds-neutral-900 mb-3">
                   {f.title}
                 </h3>
 
                 {/* Body */}
-                <p className="text-[16px] text-ds-neutral-700 leading-[1.6]">
+                <p className="text-[15px] text-ds-neutral-700 leading-[1.6]">
                   {f.text}
                 </p>
               </div>
