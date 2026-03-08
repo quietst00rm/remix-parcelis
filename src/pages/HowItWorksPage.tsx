@@ -180,7 +180,7 @@ const IntegrationsSection: React.FC = () => {
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-[18px] font-semibold text-ds-neutral-900">{item.name}</h3>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-ds-teal animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-ds-teal live-dot" />
                     <span className="text-[13px] font-medium text-ds-teal">Live</span>
                   </div>
                 </div>
