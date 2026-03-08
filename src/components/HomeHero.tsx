@@ -49,7 +49,7 @@ const HomeHero: React.FC = () => {
     >
       {/* Hero area */}
       <div
-        className="relative min-h-[100svh] flex flex-col items-center justify-start pt-[160px] pb-[140px] md:pb-[160px]"
+        className="relative min-h-[500px] md:min-h-[560px] flex flex-col items-center justify-start pt-[160px] pb-16 md:pb-20"
       >
         {/* Noise overlay */}
         <div
