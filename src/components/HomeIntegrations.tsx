@@ -47,35 +47,35 @@ const HomeIntegrations: React.FC = () => {
               <Tag
                 key={item.name}
                 {...linkProps}
-                className={`rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] cursor-pointer ${
+                className={`rounded-[12px] p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-[2px] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] cursor-pointer ${
                   isApi
-                    ? "border-2 border-dashed border-ds-neutral-300 bg-white"
-                    : "border border-ds-neutral-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+                    ? "border-2 border-dashed border-ds-neutral-300"
+                    : "border border-ds-neutral-200"
                 }`}
               >
                 <div className="h-8 flex items-center justify-center mb-4">
                   {item.logo ? (
                     <img src={item.logo} alt={`${item.name} logo`} className="h-8 w-auto object-contain" />
                   ) : (
-                    <Code2 size={28} className="text-ds-primary" />
+                    <Code2 size={28} className="text-ds-neutral-500" />
                   )}
                 </div>
                 <h3 className="text-[16px] font-semibold text-ds-neutral-900 mb-2">{item.name}</h3>
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 mb-2">
                   <span
-                    className={`w-2 h-2 rounded-full ${
-                      item.status === "LIVE" ? "bg-ds-teal live-dot" : "bg-ds-primary-light"
+                    className={`inline-block w-[8px] h-[8px] rounded-full live-dot ${
+                      item.status === "LIVE" ? "bg-ds-teal" : "bg-ds-neutral-400"
                     }`}
                   />
                   <span
                     className={`text-[13px] font-medium ${
-                      item.status === "LIVE" ? "text-ds-teal" : "text-ds-primary-light"
+                      item.status === "LIVE" ? "text-ds-teal" : "text-ds-neutral-500"
                     }`}
                   >
                     {item.status === "LIVE" ? "Live" : "Available"}
                   </span>
                 </div>
-                <p className="text-[14px] text-ds-neutral-500 mt-2">{item.description}</p>
+                <p className="text-[14px] text-ds-neutral-500">{item.description}</p>
               </Tag>
             );
           })}
