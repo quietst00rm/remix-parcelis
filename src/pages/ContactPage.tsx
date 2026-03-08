@@ -184,10 +184,10 @@ const ContactPage = () => {
           <h2 className="text-2xl font-bold text-center mb-8">Other Ways to Get Help</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Button asChild variant="outline" className="h-auto py-6 flex-col">
-              <Link to="/apply">
-                <span className="font-semibold mb-1">Apply Now</span>
+              <a href="https://apps.shopify.com/parcelis" target="_blank" rel="noopener noreferrer">
+                <span className="font-semibold mb-1">Get Parcelis</span>
                 <span className="text-xs text-muted-foreground">Ready to get started?</span>
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="outline" className="h-auto py-6 flex-col"></Button>
             <Button asChild variant="outline" className="h-auto py-6 flex-col">

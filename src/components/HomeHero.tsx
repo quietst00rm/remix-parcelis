@@ -93,12 +93,14 @@ const HomeHero: React.FC = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
-            <Link
-              to="/apply"
+            <a
+              href="https://apps.shopify.com/parcelis"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow"
             >
-              Protect Your Customers Today
-            </Link>
+              Get Parcelis
+            </a>
             <Link
               to="/how-it-works"
               className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0"

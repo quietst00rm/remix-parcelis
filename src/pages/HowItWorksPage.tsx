@@ -239,12 +239,14 @@ const CTASection: React.FC = () => {
           Join merchants using Parcelis to eliminate shipping headaches and build customer trust.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <Link
-            to="/apply"
+          <a
+            href="https://apps.shopify.com/parcelis"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow w-full sm:w-auto text-center"
           >
-            Apply Now
-          </Link>
+            Get Parcelis
+          </a>
         </div>
         <div className="flex items-center justify-center gap-4 text-[13px] text-white/50">
           <span className="flex items-center gap-1.5">

@@ -12,7 +12,7 @@ const productLinks = [
 const companyLinks = [
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
-  { name: "Apply Now", path: "/apply" },
+  { name: "Get Parcelis", path: "https://apps.shopify.com/parcelis", external: true },
   { name: "Blog", path: "/blog" },
 ];
 
@@ -28,14 +28,25 @@ const FooterHeading: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   </h4>
 );
 
-const FooterLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => (
+const FooterLink: React.FC<{ to: string; external?: boolean; children: React.ReactNode }> = ({ to, external, children }) => (
   <li>
-    <Link
-      to={to}
-      className="text-[15px] text-ds-neutral-300 hover:text-white transition-colors duration-200"
-    >
-      {children}
-    </Link>
+    {external ? (
+      <a
+        href={to}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[15px] text-ds-neutral-300 hover:text-white transition-colors duration-200"
+      >
+        {children}
+      </a>
+    ) : (
+      <Link
+        to={to}
+        className="text-[15px] text-ds-neutral-300 hover:text-white transition-colors duration-200"
+      >
+        {children}
+      </Link>
+    )}
   </li>
 );
 
@@ -78,7 +89,7 @@ const Footer: React.FC = () => {
             <FooterHeading>Company</FooterHeading>
             <ul className="flex flex-col gap-3" role="list">
               {companyLinks.map((link) => (
-                <FooterLink key={link.path} to={link.path}>
+                <FooterLink key={link.path} to={link.path} external={'external' in link && link.external}>
                   {link.name}
                 </FooterLink>
               ))}
