@@ -44,7 +44,7 @@ const HomeHero: React.FC = () => {
     <section className="relative overflow-hidden -mt-[76px]">
       {/* Hero area */}
       <div
-        className="relative min-h-[480px] sm:min-h-[620px] flex flex-col items-center justify-center pt-[76px] pb-28 sm:pb-32 md:pb-40"
+        className="relative min-h-[520px] md:min-h-[640px] flex flex-col items-center justify-center pt-[160px] pb-20 sm:pb-24 md:pb-28"
         style={{
           background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 40%, #1E40AF 60%, #172554 100%)",
         }}
@@ -68,29 +68,29 @@ const HomeHero: React.FC = () => {
         />
 
         {/* Content */}
-        <div className="relative z-10 max-w-[720px] mx-auto px-5 sm:px-6 text-center flex flex-col items-center">
-          <h1 className="font-heading text-[36px] sm:text-[40px] md:text-[64px] font-bold text-white leading-[1.15] sm:leading-[1.1] tracking-[-0.03em] mb-5">
+        <div className="relative z-10 max-w-[800px] mx-auto px-5 sm:px-6 text-center flex flex-col items-center">
+          <h1 className="font-heading text-[40px] md:text-[64px] font-bold text-white leading-[1.1] tracking-[-0.03em] mb-6">
             Deliver Confidence with Every Shipment.
           </h1>
 
-          <p className="max-w-full sm:max-w-[560px] text-[16px] md:text-[18px] text-white/75 leading-[1.7] mb-9">
+          <p className="max-w-[620px] text-[16px] md:text-[18px] text-white/75 leading-[1.7] mb-9">
             A tech-enabled package protection platform that keeps customers happy, support teams
             unburdened, and your brand reputation intact — powered by InsureShip.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-6 w-full sm:w-auto">
             <a
               href="https://apps.shopify.com/parcelis"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow w-full sm:w-auto text-center"
+              className="bg-white text-[#1E3A8A] font-semibold text-[17px] px-9 py-4 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.15)] hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 w-full sm:w-auto text-center"
             >
               Get Parcelis
             </a>
             <Link
               to="/how-it-works"
-              className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0 w-full sm:w-auto text-center"
+              className="border-2 border-white/30 text-white font-medium text-[17px] px-9 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0 w-full sm:w-auto text-center"
             >
               See How It Works
             </Link>

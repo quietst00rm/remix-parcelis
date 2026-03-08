@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-[76px]">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0" aria-label="PARCELIS Home">
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Center Links */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-2">
               {NAV_LINKS.map((link) =>
                 link.children ? (
                   <div
