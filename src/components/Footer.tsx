@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
             <FooterHeading>Company</FooterHeading>
             <ul className="flex flex-col gap-3" role="list">
               {companyLinks.map((link) => (
-                <FooterLink key={link.path} to={link.path}>
+                <FooterLink key={link.path} to={link.path} external={'external' in link && link.external}>
                   {link.name}
                 </FooterLink>
               ))}
