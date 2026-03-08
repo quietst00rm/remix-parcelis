@@ -42,21 +42,19 @@ const HomeValueProps: React.FC = () => {
       className="relative"
       style={{
         background: "radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.03) 0%, transparent 50%), #F8FAFC",
-        paddingTop: "72px",
-        paddingBottom: "96px",
+        paddingTop: "56px",
+        paddingBottom: "56px",
       }}
     >
-      <div ref={ref} className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div ref={ref} className="max-w-[1200px] mx-auto px-5 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
           {CARDS.map((card, i) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.heading}
-                className={`bg-white rounded-2xl p-9 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-[3px] transition-all duration-300 ${
-                  visible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-5"
+                className={`bg-white rounded-2xl p-6 md:p-9 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-[3px] transition-all duration-300 ${
+                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{
                   transitionDelay: visible ? `${i * 100}ms` : "0ms",
@@ -64,17 +62,12 @@ const HomeValueProps: React.FC = () => {
                   transitionDuration: "500ms, 500ms, 300ms",
                 }}
               >
-                {/* Icon container */}
                 <div className="w-[52px] h-[52px] rounded-xl bg-ds-neutral-100 flex items-center justify-center mb-5">
                   <Icon size={24} className="text-ds-primary" />
                 </div>
-
-                {/* Heading */}
                 <h3 className="font-heading text-[20px] font-semibold text-ds-neutral-900 leading-[1.3] mb-2">
                   {card.heading}
                 </h3>
-
-                {/* Highlighted stat */}
                 <div className="flex items-baseline gap-2 mb-5">
                   <span className="text-[32px] font-bold text-ds-teal leading-none">
                     {card.stat}
@@ -83,8 +76,6 @@ const HomeValueProps: React.FC = () => {
                     {card.statSuffix}
                   </span>
                 </div>
-
-                {/* Body */}
                 <p className="font-dm text-[15px] text-ds-neutral-700 leading-[1.6]">
                   {card.body}
                 </p>

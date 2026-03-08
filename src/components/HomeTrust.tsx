@@ -29,12 +29,7 @@ function useReveal() {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
       { threshold: 0.15 }
     );
     obs.observe(el);
@@ -50,16 +45,16 @@ const HomeTrust: React.FC = () => {
 
   return (
     <section className="relative overflow-hidden" style={{ background: "#0F172A" }}>
-      {/* ── Top wave (from #F8FAFC above) ──────────────────────── */}
+      {/* Top wave */}
       <div className="absolute top-0 left-0 right-0 z-[2]">
-        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px] block">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[30px] sm:h-[40px] md:h-[60px] block">
           <path d="M0,0 L0,40 Q720,0 1440,40 L1440,0 Z" fill="#F8FAFC" />
         </svg>
       </div>
 
-      {/* ── Bottom wave (to white below) ──────────────────────── */}
+      {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0 z-[2]">
-        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px] block">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[30px] sm:h-[40px] md:h-[60px] block">
           <path d="M0,60 L0,20 Q720,60 1440,20 L1440,60 Z" fill="#FFFFFF" />
         </svg>
       </div>
@@ -72,20 +67,19 @@ const HomeTrust: React.FC = () => {
 
       <div
         ref={ref}
-        className="relative z-10 max-w-[1200px] mx-auto px-6 text-center"
-        style={{ paddingTop: "120px", paddingBottom: "120px" }}
+        className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center py-20 md:py-[120px]"
       >
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-white tracking-[-0.02em] leading-[1.2] mb-14">
           Licensed. Legitimate. Reliable.
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
           {ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className={`bg-ds-surface-elevated border border-ds-surface-border rounded-2xl p-8 flex flex-col items-center text-center hover:border-ds-primary-light transition-all duration-200 ${
+                className={`bg-ds-surface-elevated border border-ds-surface-border rounded-2xl p-6 md:p-8 flex flex-col items-center text-center hover:border-ds-primary-light transition-all duration-200 ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{

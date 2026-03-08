@@ -45,15 +45,12 @@ const HomeFeatures: React.FC = () => {
 
   return (
     <section
-      className="relative"
+      className="relative py-14 md:py-24"
       style={{
         background: "radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.03) 0%, transparent 50%), #F8FAFC",
-        paddingTop: "96px",
-        paddingBottom: "96px",
       }}
     >
-      <div className="max-w-[1200px] mx-auto px-6">
-        {/* Heading */}
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <div className="text-center mb-14">
           <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] mb-4">
             Protection That Builds Trust.
@@ -65,14 +62,13 @@ const HomeFeatures: React.FC = () => {
           </p>
         </div>
 
-        {/* Grid */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 items-stretch">
           {FEATURES.map((f, i) => {
             const Icon = f.icon;
             return (
               <div
                 key={f.title}
-                className={`bg-white border border-ds-neutral-200 rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] hover:border-transparent transition-all duration-300 flex flex-col ${
+                className={`bg-white border border-ds-neutral-200 rounded-2xl p-6 md:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] hover:border-transparent transition-all duration-300 flex flex-col ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{
@@ -81,17 +77,12 @@ const HomeFeatures: React.FC = () => {
                   transitionDuration: "500ms, 500ms, 300ms, 300ms",
                 }}
               >
-                {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-ds-neutral-100 flex items-center justify-center mb-5">
                   <Icon size={24} className="text-ds-primary" />
                 </div>
-
-                {/* Title */}
                 <h3 className="font-heading text-[20px] font-semibold text-ds-neutral-900 leading-[1.3] mb-3">
                   {f.title}
                 </h3>
-
-                {/* Body */}
                 <p className="font-dm text-[15px] text-ds-neutral-700 leading-[1.6]">
                   {f.text}
                 </p>

@@ -27,8 +27,8 @@ const HomeProcess: React.FC = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section className="bg-white py-14 md:py-24">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] text-center mb-16">
           Simple Process, Zero Hassle
         </h2>
@@ -38,7 +38,6 @@ const HomeProcess: React.FC = () => {
           <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-0">
             {STEPS.map((step, i) => (
               <React.Fragment key={step.num}>
-                {/* Step */}
                 <div
                   className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${
                     visible ? "opacity-100 scale-100" : "opacity-0 scale-[0.9]"
@@ -48,11 +47,10 @@ const HomeProcess: React.FC = () => {
                   <div className="w-[72px] h-[72px] rounded-full bg-ds-primary flex items-center justify-center mb-6">
                     <span className="font-heading text-[28px] font-bold text-white">{step.num}</span>
                   </div>
-                  <h3 className="text-[22px] font-semibold text-ds-neutral-900 mb-3">{step.title}</h3>
-                  <p className="text-[15px] text-ds-neutral-500 leading-[1.6] max-w-[280px]">{step.desc}</p>
+                  <h3 className="font-heading text-[22px] font-semibold text-ds-neutral-900 mb-3">{step.title}</h3>
+                  <p className="font-dm text-[15px] text-ds-neutral-500 leading-[1.6] max-w-[280px]">{step.desc}</p>
                 </div>
 
-                {/* Connector (between steps) */}
                 {i < STEPS.length - 1 && (
                   <div
                     className={`flex items-center self-start mt-[34px] px-2 transition-all duration-500 ease-out ${
@@ -72,7 +70,6 @@ const HomeProcess: React.FC = () => {
           <div className="flex flex-col items-center gap-0 md:hidden">
             {STEPS.map((step, i) => (
               <React.Fragment key={step.num}>
-                {/* Vertical connector */}
                 {i > 0 && (
                   <div
                     className={`w-px h-8 border-l-2 border-dashed border-ds-neutral-300 my-2 transition-all duration-500 ease-out ${
@@ -81,19 +78,17 @@ const HomeProcess: React.FC = () => {
                     style={{ transitionDelay: visible ? "600ms" : "0ms" }}
                   />
                 )}
-
-                {/* Step */}
                 <div
                   className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${
                     visible ? "opacity-100 scale-100" : "opacity-0 scale-[0.9]"
                   }`}
                   style={{ transitionDelay: visible ? `${i * 200}ms` : "0ms" }}
                 >
-                  <div className="w-[72px] h-[72px] rounded-full bg-ds-primary flex items-center justify-center mb-6">
-                    <span className="font-heading text-[28px] font-bold text-white">{step.num}</span>
+                  <div className="w-[60px] h-[60px] rounded-full bg-ds-primary flex items-center justify-center mb-5">
+                    <span className="font-heading text-[24px] font-bold text-white">{step.num}</span>
                   </div>
-                  <h3 className="text-[22px] font-semibold text-ds-neutral-900 mb-3">{step.title}</h3>
-                  <p className="text-[15px] text-ds-neutral-500 leading-[1.6] max-w-[280px]">{step.desc}</p>
+                  <h3 className="font-heading text-[20px] font-semibold text-ds-neutral-900 mb-3">{step.title}</h3>
+                  <p className="font-dm text-[15px] text-ds-neutral-500 leading-[1.6] max-w-[280px]">{step.desc}</p>
                 </div>
               </React.Fragment>
             ))}

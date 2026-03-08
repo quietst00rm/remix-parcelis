@@ -24,11 +24,11 @@ const HomeSplitFeature: React.FC = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
-      <div ref={ref} className="max-w-[1200px] mx-auto px-6">
+    <section className="bg-white py-14 md:py-24">
+      <div ref={ref} className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* ── Left column (55%) ──────────────────────────────── */}
+          {/* Left column */}
           <div
             className={`lg:col-span-7 transition-all duration-[600ms] ease-out ${
               visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
@@ -55,7 +55,7 @@ const HomeSplitFeature: React.FC = () => {
             </Link>
           </div>
 
-          {/* ── Right column (45%) ─────────────────────────────── */}
+          {/* Right column – 5-7 days card */}
           <div
             className={`lg:col-span-5 transition-all duration-[600ms] ease-out ${
               visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
@@ -63,31 +63,19 @@ const HomeSplitFeature: React.FC = () => {
             style={{ transitionDelay: visible ? "150ms" : "0ms" }}
           >
             <div
-              className="rounded-[20px] p-10 md:p-12 text-center relative overflow-hidden"
+              className="rounded-[20px] p-10 md:p-12 text-center relative overflow-hidden max-w-[360px] mx-auto lg:max-w-none"
               style={{
                 background: "linear-gradient(135deg, #1E3A8A 0%, #1E40AF 50%, #172554 100%)",
                 boxShadow: "0 0 80px rgba(59,130,246,0.25), 0 20px 60px rgba(0,0,0,0.15)",
               }}
             >
-              {/* Subtle inner glow */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-
               <div className="relative z-10 flex flex-col items-center">
-                <span className="text-[80px] font-bold text-white leading-none tracking-tight">
-                  5-7
-                </span>
-                <span className="text-[24px] font-semibold text-white/90 mt-1">
-                  Business Days
-                </span>
-                <span className="text-[14px] text-white/50 mt-3">
-                  Average claim resolution
-                </span>
-
+                <span className="text-[80px] font-bold text-white leading-none tracking-tight">5-7</span>
+                <span className="text-[24px] font-semibold text-white/90 mt-1">Business Days</span>
+                <span className="text-[14px] text-white/50 mt-3">Average claim resolution</span>
                 <div className="w-16 h-px bg-white/20 my-5" />
-
-                <p className="text-[14px] text-white/50 italic">
-                  Carrier insurance: 30-60 days
-                </p>
+                <p className="text-[14px] text-white/50 italic">Carrier insurance: 30-60 days</p>
               </div>
             </div>
           </div>

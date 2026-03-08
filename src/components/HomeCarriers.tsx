@@ -14,14 +14,12 @@ const CARRIERS = [
 const HomeCarriers: React.FC = () => {
   return (
     <section
-      className="relative"
+      className="relative py-14 md:py-24"
       style={{
         background: "radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.03) 0%, transparent 50%), #F8FAFC",
-        paddingTop: "96px",
-        paddingBottom: "96px",
       }}
     >
-      <div className="max-w-[1200px] mx-auto px-6 text-center">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 text-center">
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] mb-4">
           All Major Carriers Covered
         </h2>
@@ -29,7 +27,8 @@ const HomeCarriers: React.FC = () => {
           Comprehensive protection across USPS, UPS, FedEx, DHL, and all regional and international carriers.
         </p>
 
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+        {/* Desktop: row, Mobile: 2x2 grid */}
+        <div className="hidden sm:flex flex-wrap justify-center items-center gap-14">
           {CARRIERS.map((c) => (
             <div
               key={c.alt}
@@ -38,11 +37,16 @@ const HomeCarriers: React.FC = () => {
               onMouseEnter={(e) => { e.currentTarget.style.filter = "grayscale(0%)"; e.currentTarget.style.opacity = "1"; }}
               onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(100%)"; e.currentTarget.style.opacity = "0.45"; }}
             >
-              <img
-                src={c.src}
-                alt={`${c.alt} logo`}
-                className="h-[44px] w-auto object-contain"
-              />
+              <img src={c.src} alt={`${c.alt} logo`} className="h-[44px] w-auto object-contain" />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile: 2x2 grid */}
+        <div className="grid grid-cols-2 gap-6 justify-items-center sm:hidden">
+          {CARRIERS.map((c) => (
+            <div key={c.alt} style={{ filter: "grayscale(100%)", opacity: 0.45 }}>
+              <img src={c.src} alt={`${c.alt} logo`} className="h-[44px] w-auto object-contain" />
             </div>
           ))}
         </div>

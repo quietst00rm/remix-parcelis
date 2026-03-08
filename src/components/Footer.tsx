@@ -53,12 +53,11 @@ const FooterLink: React.FC<{ to: string; external?: boolean; children: React.Rea
 const Footer: React.FC = () => {
   return (
     <footer className="bg-ds-surface-dark" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-
-      <div className="max-w-[1200px] mx-auto px-6 pt-16 pb-10">
-        {/* 4-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
-          {/* Column 1 – Brand (wider) */}
-          <div className="lg:col-span-4">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-14 md:pt-16 pb-10">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-8 text-center sm:text-left">
+          {/* Brand */}
+          <div className="lg:col-span-4 flex flex-col items-center sm:items-start">
             <Link to="/" aria-label="PARCELIS Home">
               <img src={logoWhite} alt="PARCELIS Logo" className="h-10 w-auto mb-5" />
             </Link>
@@ -70,7 +69,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Column 2 – Product */}
+          {/* Product */}
           <div className="lg:col-span-2 lg:col-start-6">
             <FooterHeading>Product</FooterHeading>
             <ul className="flex flex-col gap-3" role="list">
@@ -82,7 +81,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3 – Company */}
+          {/* Company */}
           <div className="lg:col-span-2">
             <FooterHeading>Company</FooterHeading>
             <ul className="flex flex-col gap-3" role="list">
@@ -94,7 +93,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4 – Legal + Contact */}
+          {/* Legal + Contact */}
           <div className="lg:col-span-2">
             <FooterHeading>Legal</FooterHeading>
             <ul className="flex flex-col gap-3 mb-8" role="list">
