@@ -53,13 +53,23 @@ const HomeValueProps: React.FC = () => {
             return (
               <div
                 key={card.heading}
-                className={`bg-white rounded-2xl p-6 md:p-9 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-[3px] transition-all duration-300 ${
+                className={`bg-white rounded-2xl p-6 md:p-9 transition-all duration-300 ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{
+                  border: "1px solid rgba(226,232,240,0.6)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
                   transitionDelay: visible ? `${i * 100}ms` : "0ms",
                   transitionProperty: "opacity, transform, box-shadow",
                   transitionDuration: "500ms, 500ms, 300ms",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.1)";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.07)";
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 <div className="w-[52px] h-[52px] rounded-xl bg-ds-neutral-100 flex items-center justify-center mb-5">
