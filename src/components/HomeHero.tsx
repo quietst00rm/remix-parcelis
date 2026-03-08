@@ -101,7 +101,7 @@ const HomeHero: React.FC = () => {
             </Link>
             <Link
               to="/how-it-works"
-              className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px]"
+              className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0"
             >
               See How It Works
             </Link>
