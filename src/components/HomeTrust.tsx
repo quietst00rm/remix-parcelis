@@ -67,7 +67,7 @@ const HomeTrust: React.FC = () => {
 
       <div
         ref={ref}
-        className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center py-20 md:py-[120px]"
+        className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center pt-10 pb-20 md:pt-[160px] md:pb-[120px]"
       >
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-white tracking-[-0.02em] leading-[1.2] mb-14">
           Licensed. Legitimate. Reliable.
