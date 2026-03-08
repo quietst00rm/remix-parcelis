@@ -12,9 +12,9 @@ const HomeCTA: React.FC = () => {
         background: "linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%)",
       }}
     >
-      {/* ── Top wave (from #F8FAFC above) ──────────────────────── */}
+      {/* Top wave */}
       <div className="absolute top-0 left-0 right-0 z-[2]">
-        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px] block">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[30px] sm:h-[40px] md:h-[60px] block">
           <path d="M0,0 L0,40 Q720,0 1440,40 L1440,0 Z" fill="#F8FAFC" />
         </svg>
       </div>
@@ -33,25 +33,21 @@ const HomeCTA: React.FC = () => {
         }}
       />
 
-      {/* Corner decorative shapes */}
       <div className="absolute top-0 left-0 w-72 h-72 rounded-full bg-white/[0.03] blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-white/[0.03] blur-3xl pointer-events-none" />
 
       {/* Content */}
-      <div
-        className="relative z-10 max-w-[600px] mx-auto px-6 text-center"
-        style={{ paddingTop: "120px", paddingBottom: "96px" }}
-      >
-        <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-white leading-[1.2] mb-5">
+      <div className="relative z-10 max-w-[600px] mx-auto px-5 sm:px-6 text-center py-20 sm:py-24 md:pt-[120px] md:pb-24">
+        <h2 className="font-heading text-[28px] sm:text-[30px] md:text-[40px] font-bold text-white leading-[1.2] mb-5">
           Ready to Protect Your Customers?
         </h2>
 
-        <p className="text-[18px] text-white/70 leading-[1.7] mb-9">
+        <p className="font-dm text-[16px] md:text-[18px] text-white/70 leading-[1.7] mb-9">
           Join the merchants who've chosen the smarter way to deliver confidence with every shipment.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
           <a
             href="https://apps.shopify.com/parcelis"
             target="_blank"
@@ -69,12 +65,12 @@ const HomeCTA: React.FC = () => {
         </div>
 
         {/* Trust line */}
-        <div className="flex items-center justify-center gap-4 text-[13px] text-white/50">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[13px] text-white/50">
           <span className="flex items-center gap-1.5">
             <CheckCircle size={14} />
             Licensed Reinsurance Provider
           </span>
-          <span aria-hidden="true">·</span>
+          <span aria-hidden="true" className="hidden sm:inline">·</span>
           <span>Comprehensive Protection</span>
         </div>
       </div>

@@ -2,9 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Award, CheckCircle } from "lucide-react";
 
-/* ------------------------------------------------------------------ */
-/*  Animated counter hook – fires once on intersection                */
-/* ------------------------------------------------------------------ */
 function useCountUp(end: number, duration = 1500) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -13,7 +10,6 @@ function useCountUp(end: number, duration = 1500) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasRun.current) {
@@ -37,30 +33,23 @@ function useCountUp(end: number, duration = 1500) {
   return { value, ref };
 }
 
-/* ------------------------------------------------------------------ */
-/*  Stats data                                                        */
-/* ------------------------------------------------------------------ */
 const STATS = [
   { icon: Shield, end: 50, prefix: "$", suffix: "M+", label: "Packages Protected" },
   { icon: Users, end: 10, prefix: "", suffix: "K+", label: "Active Merchants" },
   { icon: Award, end: 99, prefix: "", suffix: "%", label: "Satisfaction Rate" },
 ];
 
-/* ------------------------------------------------------------------ */
-/*  HomeHero                                                          */
-/* ------------------------------------------------------------------ */
 const HomeHero: React.FC = () => {
   return (
     <section className="relative overflow-hidden -mt-[76px]">
-      {/* ── Hero area ────────────────────────────────────────────── */}
+      {/* Hero area */}
       <div
-        className="relative min-h-[500px] sm:min-h-[620px] flex flex-col items-center justify-center pt-[76px] pb-32 md:pb-40"
+        className="relative min-h-[480px] sm:min-h-[620px] flex flex-col items-center justify-center pt-[76px] pb-28 sm:pb-32 md:pb-40"
         style={{
-          background:
-            "linear-gradient(135deg, #0F172A 0%, #1E3A8A 40%, #1E40AF 60%, #172554 100%)",
+          background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 40%, #1E40AF 60%, #172554 100%)",
         }}
       >
-        {/* Noise / grain overlay */}
+        {/* Noise overlay */}
         <div
           className="absolute inset-0 pointer-events-none z-[1]"
           style={{
@@ -70,41 +59,38 @@ const HomeHero: React.FC = () => {
           }}
         />
 
-        {/* Radial glow – offset right */}
+        {/* Radial glow */}
         <div
           className="absolute inset-0 pointer-events-none z-[1]"
           style={{
-            background:
-              "radial-gradient(ellipse at 60% 50%, rgba(59,130,246,0.15) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse at 60% 50%, rgba(59,130,246,0.15) 0%, transparent 60%)",
           }}
         />
 
-        {/* ── Content ────────────────────────────────────────────── */}
-        <div className="relative z-10 max-w-[720px] mx-auto px-6 text-center flex flex-col items-center">
-          {/* Headline */}
-          <h1 className="font-heading text-[40px] md:text-[64px] font-bold text-white leading-[1.1] tracking-[-0.03em] mb-5">
+        {/* Content */}
+        <div className="relative z-10 max-w-[720px] mx-auto px-5 sm:px-6 text-center flex flex-col items-center">
+          <h1 className="font-heading text-[36px] sm:text-[40px] md:text-[64px] font-bold text-white leading-[1.15] sm:leading-[1.1] tracking-[-0.03em] mb-5">
             Deliver Confidence with Every Shipment.
           </h1>
 
-          {/* Subtext */}
-          <p className="max-w-[560px] text-[16px] md:text-[18px] text-white/75 leading-[1.7] mb-9">
+          <p className="max-w-full sm:max-w-[560px] text-[16px] md:text-[18px] text-white/75 leading-[1.7] mb-9">
             A tech-enabled package protection platform that keeps customers happy, support teams
             unburdened, and your brand reputation intact — powered by InsureShip.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 w-full sm:w-auto">
             <a
               href="https://apps.shopify.com/parcelis"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow"
+              className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow w-full sm:w-auto text-center"
             >
               Get Parcelis
             </a>
             <Link
               to="/how-it-works"
-              className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0"
+              className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0 w-full sm:w-auto text-center"
             >
               See How It Works
             </Link>
@@ -117,26 +103,23 @@ const HomeHero: React.FC = () => {
           </div>
         </div>
 
-        {/* ── Bottom curve ───────────────────────────────────────── */}
+        {/* Bottom curve */}
         <div className="absolute bottom-0 left-0 right-0 z-[2]">
           <svg
             viewBox="0 0 1440 60"
             fill="none"
             preserveAspectRatio="none"
-            className="w-full h-[40px] md:h-[60px] block"
+            className="w-full h-[30px] sm:h-[40px] md:h-[60px] block"
           >
-            <path
-              d="M0,60 L0,20 Q720,60 1440,20 L1440,60 Z"
-              fill="white"
-            />
+            <path d="M0,60 L0,20 Q720,60 1440,20 L1440,60 Z" fill="white" />
           </svg>
         </div>
       </div>
 
-      {/* ── Stats bar (overlapping) ──────────────────────────────── */}
-      <div className="relative z-20 -mt-12 md:-mt-[48px] pb-8 px-6">
+      {/* Stats bar */}
+      <div className="relative z-20 -mt-8 sm:-mt-10 md:-mt-[48px] pb-8 px-5 sm:px-6">
         <div className="max-w-[900px] mx-auto bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] px-6 py-8 md:px-12 md:py-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0">
             {STATS.map((stat, i) => (
               <StatItem key={stat.label} stat={stat} showDivider={i < STATS.length - 1} />
             ))}
@@ -147,9 +130,6 @@ const HomeHero: React.FC = () => {
   );
 };
 
-/* ------------------------------------------------------------------ */
-/*  Stat item with counter                                            */
-/* ------------------------------------------------------------------ */
 interface StatItemProps {
   stat: (typeof STATS)[number];
   showDivider: boolean;
@@ -164,12 +144,16 @@ const StatItem: React.FC<StatItemProps> = ({ stat, showDivider }) => {
       ref={ref}
       className={`flex flex-col items-center text-center relative ${
         showDivider
-          ? "md:border-r md:border-ds-neutral-200 border-b md:border-b-0 border-ds-neutral-200 pb-8 md:pb-0"
+          ? "md:border-r md:border-ds-neutral-200 pb-6 md:pb-0"
           : ""
       }`}
     >
+      {/* Mobile horizontal divider */}
+      {showDivider && (
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60px] h-px bg-ds-neutral-200 md:hidden" />
+      )}
       <Icon size={24} className="text-ds-teal mb-3" />
-      <span className="font-heading text-[48px] font-bold text-ds-primary leading-none mb-1">
+      <span className="font-heading text-[40px] md:text-[48px] font-bold text-ds-primary leading-none mb-1">
         {stat.prefix}
         {value}
         {stat.suffix}

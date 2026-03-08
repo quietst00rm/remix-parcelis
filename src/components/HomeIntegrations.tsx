@@ -26,8 +26,8 @@ const INTEGRATIONS: Integration[] = [
 
 const HomeIntegrations: React.FC = () => {
   return (
-    <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section className="bg-white py-14 md:py-24">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-6">
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] text-center mb-4">
           Seamlessly Integrated
         </h2>
@@ -35,8 +35,7 @@ const HomeIntegrations: React.FC = () => {
           Connect Parcelis to your platform in minutes.
         </p>
 
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {INTEGRATIONS.map((item) => {
             const isApi = item.isApi;
             const Tag = item.href ? "a" : "div";
@@ -54,7 +53,6 @@ const HomeIntegrations: React.FC = () => {
                     : "border border-ds-neutral-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
                 }`}
               >
-                {/* Logo / Icon */}
                 <div className="h-8 flex items-center justify-center mb-4">
                   {item.logo ? (
                     <img src={item.logo} alt={`${item.name} logo`} className="h-8 w-auto object-contain" />
@@ -62,11 +60,7 @@ const HomeIntegrations: React.FC = () => {
                     <Code2 size={28} className="text-ds-primary" />
                   )}
                 </div>
-
-                {/* Name */}
                 <h3 className="text-[16px] font-semibold text-ds-neutral-900 mb-2">{item.name}</h3>
-
-                {/* Status */}
                 <div className="flex items-center gap-1.5">
                   <span
                     className={`w-2 h-2 rounded-full ${
@@ -81,8 +75,6 @@ const HomeIntegrations: React.FC = () => {
                     {item.status === "LIVE" ? "Live" : "Available"}
                   </span>
                 </div>
-
-                {/* Description */}
                 <p className="text-[14px] text-ds-neutral-500 mt-2">{item.description}</p>
               </Tag>
             );
