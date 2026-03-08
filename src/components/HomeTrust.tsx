@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Shield, Award, Clock, ChevronRight } from "lucide-react";
+import { Shield, Award, Clock } from "lucide-react";
 
 const ITEMS = [
   {
@@ -96,10 +96,12 @@ const HomeTrust: React.FC = () => {
                 </div>
                 <h3 className="font-heading text-[20px] font-semibold text-white leading-[1.3] mb-3">{item.title}</h3>
                 <p className="font-dm text-[15px] text-white/60 leading-[1.6] mb-6">{item.text}</p>
-                <div className="mt-auto flex items-center gap-1 text-ds-teal text-[13px] font-medium uppercase tracking-[0.04em] hover:text-[#5EEAD4] transition-colors duration-150 cursor-default">
+                <span
+                  className="mt-auto inline-block text-[12px] font-semibold uppercase tracking-[0.05em] px-3.5 py-1.5 rounded-lg"
+                  style={{ background: "rgba(13,148,136,0.1)", color: "#0D9488" }}
+                >
                   {item.badge}
-                  <ChevronRight size={14} />
-                </div>
+                </span>
               </div>
             );
           })}
