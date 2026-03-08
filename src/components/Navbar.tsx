@@ -91,8 +91,8 @@ const Navbar: React.FC = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-[76px]">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
+           <div className="flex items-center justify-between h-[76px]">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0" aria-label="PARCELIS Home">
               <img
@@ -180,10 +180,10 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="File a Claim"
-                className={`text-[15px] font-semibold px-5 py-2.5 rounded-xl border-2 transition-all duration-200 hover:-translate-y-[1px] ${
+                className={`text-[14px] font-medium px-5 py-2.5 rounded-[10px] border-[1.5px] transition-all duration-300 ${
                   isTransparent
-                    ? "border-white/30 text-white hover:bg-white/10 hover:border-white"
-                    : "border-ds-primary text-ds-primary hover:bg-ds-primary hover:text-white"
+                    ? "border-white/35 text-white hover:border-white/50"
+                    : "border-ds-neutral-300 text-ds-neutral-700 hover:border-ds-neutral-400"
                 }`}
               >
                 File a Claim
@@ -193,9 +193,9 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Get Parcelis"
-                className={`text-[15px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:-translate-y-[1px] hover:shadow-lg ${
+                className={`text-[14px] font-semibold px-[22px] py-2.5 rounded-[10px] transition-all duration-300 hover:shadow-md ${
                   isTransparent
-                    ? "bg-white text-ds-primary hover:bg-gray-100"
+                    ? "bg-white text-ds-primary hover:bg-gray-50"
                     : "bg-ds-primary text-white hover:bg-ds-primary-dark"
                 }`}
               >
@@ -285,7 +285,7 @@ const Navbar: React.FC = () => {
               href="https://claims.myparcelis.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center text-[16px] font-semibold px-5 py-3 rounded-xl border-2 border-ds-primary text-ds-primary hover:bg-ds-primary hover:text-white transition-all"
+              className="text-center text-[16px] font-medium px-5 py-3 rounded-xl border-[1.5px] border-ds-neutral-300 text-ds-neutral-700 hover:border-ds-neutral-400 transition-all"
               aria-label="File a Claim"
             >
               File a Claim
