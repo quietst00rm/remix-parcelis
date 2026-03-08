@@ -180,10 +180,10 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="File a Claim"
-                className={`text-[14px] font-medium px-5 py-2.5 rounded-[10px] border-[1.5px] transition-all duration-300 ${
+                className={`text-[14px] font-medium px-5 py-2.5 rounded-lg bg-transparent border transition-all duration-200 ${
                   isTransparent
-                    ? "border-white/35 text-white hover:border-white/50"
-                    : "border-ds-neutral-300 text-ds-neutral-700 hover:border-ds-neutral-400"
+                    ? "border-white/30 text-white hover:bg-white/10 hover:border-white"
+                    : "border-slate-300 text-slate-600 hover:border-slate-400"
                 }`}
               >
                 File a Claim
@@ -193,10 +193,10 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Get Parcelis"
-                className={`text-[14px] font-semibold px-[22px] py-2.5 rounded-[10px] transition-all duration-300 hover:shadow-md ${
+                className={`text-[14px] font-semibold px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:-translate-y-[1px] transition-all duration-200 ${
                   isTransparent
-                    ? "bg-white text-ds-primary hover:bg-gray-50"
-                    : "bg-ds-primary text-white hover:bg-ds-primary-dark"
+                    ? "bg-white text-[#1E3A8A] hover:bg-gray-50"
+                    : "bg-[#1E3A8A] text-white hover:bg-[#172554]"
                 }`}
               >
                 Get Parcelis
