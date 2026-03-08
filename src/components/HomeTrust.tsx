@@ -44,7 +44,7 @@ const HomeTrust: React.FC = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section className="relative overflow-hidden" style={{ background: "#0F172A" }}>
+    <section className="relative overflow-visible" style={{ background: "#0F172A" }}>
       {/* Top wave */}
       <div className="absolute top-0 left-0 right-0 z-[2]">
         <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[30px] sm:h-[40px] md:h-[60px] block">
@@ -67,7 +67,7 @@ const HomeTrust: React.FC = () => {
 
       <div
         ref={ref}
-        className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center py-20 md:py-[120px]"
+        className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 text-center pt-10 pb-20 md:pt-[160px] md:pb-[120px]"
       >
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-white tracking-[-0.02em] leading-[1.2] mb-14">
           Licensed. Legitimate. Reliable.

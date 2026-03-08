@@ -7,7 +7,7 @@ const NOISE_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='h
 const HomeCTA: React.FC = () => {
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-visible"
       style={{
         background: "linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%)",
       }}
@@ -37,7 +37,7 @@ const HomeCTA: React.FC = () => {
       <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-white/[0.03] blur-3xl pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[600px] mx-auto px-5 sm:px-6 text-center py-20 sm:py-24 md:pt-[120px] md:pb-24">
+      <div className="relative z-10 max-w-[600px] mx-auto px-5 sm:px-6 text-center pt-20 sm:pt-24 pb-20 md:pt-[160px] md:pb-24">
         <h2 className="font-heading text-[28px] sm:text-[30px] md:text-[40px] font-bold text-white leading-[1.2] mb-5">
           Ready to Protect Your Customers?
         </h2>
