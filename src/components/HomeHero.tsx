@@ -108,21 +108,10 @@ const HomeHero: React.FC = () => {
           <div className="flex-grow" />
         </div>
 
-        {/* Bottom curve */}
-        <div className="absolute bottom-0 left-0 right-0 z-[2]">
-          <svg
-            viewBox="0 0 1440 60"
-            fill="none"
-            preserveAspectRatio="none"
-            className="w-full h-[30px] sm:h-[40px] md:h-[60px] block"
-          >
-            <path d="M0,60 L0,20 Q720,60 1440,20 L1440,60 Z" fill="white" />
-          </svg>
-        </div>
       </div>
 
       {/* Stats bar */}
-      <div className="relative z-20 -mt-8 sm:-mt-10 md:-mt-[48px] pb-8 px-5 sm:px-6">
+      <div className="relative z-20 -mt-12 pb-8 px-5 sm:px-6">
         <div className="max-w-[900px] mx-auto bg-white rounded-2xl px-6 py-8 md:px-12 md:py-10" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05)" }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0">
             {STATS.map((stat, i) => (
