@@ -188,17 +188,19 @@ const Navbar: React.FC = () => {
               >
                 File a Claim
               </a>
-              <Link
-                to="/apply"
-                aria-label="Apply Now"
+              <a
+                href="https://apps.shopify.com/parcelis"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get Parcelis"
                 className={`text-[15px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:-translate-y-[1px] hover:shadow-lg ${
                   isTransparent
                     ? "bg-white text-ds-primary hover:bg-gray-100"
                     : "bg-ds-primary text-white hover:bg-ds-primary-dark"
                 }`}
               >
-                Apply Now
-              </Link>
+                Get Parcelis
+              </a>
             </div>
 
             {/* Mobile Hamburger */}
