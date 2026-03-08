@@ -180,10 +180,10 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="File a Claim"
-                className={`text-[15px] font-semibold px-5 py-2.5 rounded-xl border-2 transition-all duration-200 hover:-translate-y-[1px] ${
+                className={`text-[14px] font-medium px-5 py-2.5 rounded-[10px] border-[1.5px] transition-all duration-300 ${
                   isTransparent
-                    ? "border-white/30 text-white hover:bg-white/10 hover:border-white"
-                    : "border-ds-primary text-ds-primary hover:bg-ds-primary hover:text-white"
+                    ? "border-white/35 text-white hover:border-white/50"
+                    : "border-ds-neutral-300 text-ds-neutral-700 hover:border-ds-neutral-400"
                 }`}
               >
                 File a Claim
@@ -193,9 +193,9 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Get Parcelis"
-                className={`text-[15px] font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:-translate-y-[1px] hover:shadow-lg ${
+                className={`text-[14px] font-semibold px-[22px] py-2.5 rounded-[10px] transition-all duration-300 hover:shadow-md ${
                   isTransparent
-                    ? "bg-white text-ds-primary hover:bg-gray-100"
+                    ? "bg-white text-ds-primary hover:bg-gray-50"
                     : "bg-ds-primary text-white hover:bg-ds-primary-dark"
                 }`}
               >
