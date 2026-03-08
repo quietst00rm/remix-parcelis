@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-brand-900 via-brand to-[#2e32d4] overflow-hidden pt-20">
+    <div className="relative overflow-x-clip pt-20" style={{ background: "linear-gradient(135deg, #101155 0%, #1e22aa 50%, #2e32d4 100%)" }}>
       {/* 3D Parcel Background */}
       <ParallaxParcels />
       

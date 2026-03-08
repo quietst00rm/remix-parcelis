@@ -10,7 +10,7 @@ const AffiliateHero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative bg-gradient-to-br from-brand-900 via-brand to-[#2e32d4] overflow-hidden pt-20">
+    <div className="relative overflow-x-clip pt-20" style={{ background: "linear-gradient(135deg, #101155 0%, #1e22aa 50%, #2e32d4 100%)" }}>
       {/* Decorative background elements (Static Blobs) */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none z-0">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#4a4eff] rounded-full mix-blend-screen filter blur-3xl opacity-60 animate-blob"></div>
