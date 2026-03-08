@@ -24,7 +24,7 @@ const HomeSplitFeature: React.FC = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section className="bg-white" style={{ padding: "96px 0" }}>
+    <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
       <div ref={ref} className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 

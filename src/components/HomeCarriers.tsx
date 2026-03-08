@@ -13,7 +13,14 @@ const CARRIERS = [
 
 const HomeCarriers: React.FC = () => {
   return (
-    <section className="bg-ds-neutral-50" style={{ padding: "80px 0" }}>
+    <section
+      className="relative"
+      style={{
+        background: "radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.03) 0%, transparent 50%), #F8FAFC",
+        paddingTop: "96px",
+        paddingBottom: "96px",
+      }}
+    >
       <div className="max-w-[1200px] mx-auto px-6 text-center">
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] mb-4">
           All Major Carriers Covered

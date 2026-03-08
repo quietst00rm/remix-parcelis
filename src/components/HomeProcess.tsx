@@ -26,7 +26,7 @@ const HomeProcess: React.FC = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section className="bg-white" style={{ padding: "96px 0" }}>
+    <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
       <div className="max-w-[1200px] mx-auto px-6">
         <h2 className="font-heading text-[30px] md:text-[40px] font-bold text-ds-neutral-900 tracking-[-0.02em] leading-[1.2] text-center mb-16">
           Simple Process, Zero Hassle
