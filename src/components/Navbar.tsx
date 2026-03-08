@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-300 overflow-visible ${
           isTransparent
             ? "bg-transparent"
             : "bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
