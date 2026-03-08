@@ -53,8 +53,8 @@ const BlogIndexPage = () => {
       <BlogHero />
       <BlogFilterBar activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
 
-      <section className="bg-white py-12">
-        <div className="container mx-auto px-4">
+      <section className="bg-[#F8FAFC] py-12">
+        <div className="max-w-[1200px] mx-auto px-6">
           {paginatedPosts.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-lg text-[#6b7280] mb-4">No posts found in this category.</p>

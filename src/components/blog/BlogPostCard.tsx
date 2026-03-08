@@ -16,7 +16,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
   return (
     <Link
       to={route}
-      className="group block rounded-lg overflow-hidden bg-white border border-[#e5e7eb] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#1e22aa] focus:ring-offset-2"
+      className="group block rounded-2xl overflow-hidden bg-white border border-[#E2E8F0] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:ring-offset-2"
     >
       <div className="relative aspect-video overflow-hidden">
         <img
@@ -25,23 +25,23 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
         />
-        <span className="absolute top-3 left-3 bg-[#1e22aa] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+        <span className="absolute top-3 left-3 bg-[#1E3A8A] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
           {post.category}
         </span>
       </div>
-      <div className="p-5">
-        <h2 className="font-heading text-xl font-semibold text-[#1a1a2e] mb-2 line-clamp-2 group-hover:text-[#1e22aa] transition-colors">
+      <div className="p-6">
+        <h2 className="font-heading text-xl font-semibold text-[#0F172A] mb-2 line-clamp-2 group-hover:text-[#1E3A8A] transition-colors">
           {post.title}
         </h2>
-        <p className="text-sm text-[#6b7280] mb-4 line-clamp-3">
+        <p className="text-sm text-[#64748B] mb-4 line-clamp-3">
           {post.excerpt}
         </p>
-        <div className="flex items-center justify-between text-xs text-[#6b7280]">
+        <div className="flex items-center justify-between text-xs text-[#64748B]">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-[#1e22aa] flex items-center justify-center text-white text-[10px] font-bold">
+            <div className="w-6 h-6 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white text-[10px] font-bold">
               {post.author.charAt(0)}
             </div>
-            <span className="font-medium text-[#1a1a2e]">{post.author}</span>
+            <span className="font-medium text-[#0F172A]">{post.author}</span>
             <span>·</span>
             <time dateTime={post.date}>{formattedDate}</time>
           </div>
