@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Center Links */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-2">
               {NAV_LINKS.map((link) =>
                 link.children ? (
                   <div
