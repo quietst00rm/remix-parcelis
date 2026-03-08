@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-[1440px] mx-auto pl-[40px] pr-[40px]" style={{ overflow: 'visible' }}>
            <div className="flex items-center justify-between h-[76px]">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0" aria-label="PARCELIS Home">
