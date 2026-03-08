@@ -101,6 +101,9 @@ const HomeHero: React.FC = () => {
             <CheckCircle size={16} className="text-ds-teal" />
             <span>Trusted by 10,000+ merchants</span>
           </div>
+
+          {/* Spacer to push content toward upper-center */}
+          <div className="flex-grow" />
         </div>
 
         {/* Bottom curve */}
