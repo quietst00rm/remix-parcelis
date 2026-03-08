@@ -21,6 +21,8 @@ export default {
         sans: ["Inter", "var(--font-urbanpolis)"],
         inter: ["Inter", "sans-serif"],
         urbanpolis: ["var(--font-urbanpolis)"],
+        dm: ['"DM Sans"', "sans-serif"],
+        heading: ['"Plus Jakarta Sans"', "sans-serif"],
       },
       fontSize: {
         h1: "var(--font-size-h1)",
