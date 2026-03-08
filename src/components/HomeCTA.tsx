@@ -47,13 +47,13 @@ const HomeCTA: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <Link
             to="/apply"
-            className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] w-full sm:w-auto text-center"
+            className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow w-full sm:w-auto text-center"
           >
             Sign Up Today
           </Link>
           <Link
             to="/how-it-works"
-            className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] w-full sm:w-auto text-center"
+            className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0 w-full sm:w-auto text-center"
           >
             See How It Works
           </Link>

@@ -180,7 +180,7 @@ const IntegrationsSection: React.FC = () => {
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-[18px] font-semibold text-ds-neutral-900">{item.name}</h3>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-ds-teal animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-ds-teal live-dot" />
                     <span className="text-[13px] font-medium text-ds-teal">Live</span>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ const CTASection: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <Link
             to="/apply"
-            className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] w-full sm:w-auto text-center"
+            className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow w-full sm:w-auto text-center"
           >
             Apply Now
           </Link>

@@ -66,7 +66,7 @@ const HomeIntegrations: React.FC = () => {
                 <div className="flex items-center gap-1.5">
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      item.status === "LIVE" ? "bg-ds-teal animate-pulse" : "bg-ds-primary-light"
+                      item.status === "LIVE" ? "bg-ds-teal live-dot" : "bg-ds-primary-light"
                     }`}
                   />
                   <span

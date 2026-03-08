@@ -205,23 +205,77 @@ All colors MUST be HSL.
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', 'Urbanpolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     color: hsl(var(--color-dark-gray));
     line-height: 1.6;
   }
-  
+
+  /* Focus states for keyboard accessibility */
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #3B82F6;
+    border-radius: 4px;
+  }
+
   /* Glass Nav Effect */
   .glass-nav {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
+}
+
+/* ─── Global micro-interactions ──────────────────────────────────── */
+
+/* Button press effect */
+@layer utilities {
+  .btn-press {
+    @apply transition-all duration-200 ease-out;
+  }
+  .btn-press:hover {
+    transform: translateY(-1px);
+  }
+  .btn-press:active {
+    transform: translateY(0px);
+  }
+}
+
+/* Hero CTA subtle glow pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  }
+  50% {
+    box-shadow: 0 10px 25px -3px rgba(30,58,138,0.25), 0 4px 10px -4px rgba(59,130,246,0.15);
+  }
+}
+.hero-cta-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Live indicator pulse */
+@keyframes live-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.4;
+  }
+}
+.live-dot {
+  animation: live-pulse 2s ease-in-out infinite;
 }
 
 @layer components {

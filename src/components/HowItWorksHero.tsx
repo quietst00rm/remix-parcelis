@@ -38,13 +38,13 @@ const HowItWorksHero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
               to="/apply"
-              className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px]"
+              className="bg-white text-ds-primary font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 hero-cta-glow"
             >
               Get Started
             </Link>
             <Link
               to="/pricing"
-              className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px]"
+              className="border-2 border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 hover:border-white hover:bg-white/10 hover:-translate-y-[1px] active:translate-y-0"
             >
               See Pricing
             </Link>
