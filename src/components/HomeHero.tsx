@@ -21,7 +21,7 @@ function useCountUp(end: number, duration = 1500) {
           const start = performance.now();
           const tick = (now: number) => {
             const t = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+            const eased = 1 - Math.pow(1 - t, 3);
             setValue(Math.floor(end * eased));
             if (t < 1) requestAnimationFrame(tick);
           };
@@ -54,16 +54,17 @@ const HomeHero: React.FC = () => {
     <section className="relative overflow-hidden -mt-[76px]">
       {/* ── Hero area ────────────────────────────────────────────── */}
       <div
-        className="relative min-h-[600px] sm:min-h-[500px] flex flex-col items-center justify-center pt-[76px] pb-32 md:pb-40"
+        className="relative min-h-[500px] sm:min-h-[620px] flex flex-col items-center justify-center pt-[76px] pb-32 md:pb-40"
         style={{
-          background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #172554 100%)",
+          background:
+            "linear-gradient(135deg, #0F172A 0%, #1E3A8A 40%, #1E40AF 60%, #172554 100%)",
         }}
       >
         {/* Noise / grain overlay */}
         <div
           className="absolute inset-0 pointer-events-none z-[1]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")`,
             backgroundRepeat: "repeat",
             backgroundSize: "256px 256px",
           }}
@@ -74,7 +75,7 @@ const HomeHero: React.FC = () => {
           className="absolute inset-0 pointer-events-none z-[1]"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 65% 40%, rgba(59,130,246,0.15) 0%, transparent 70%)",
+              "radial-gradient(ellipse at 60% 50%, rgba(59,130,246,0.15) 0%, transparent 60%)",
           }}
         />
 
@@ -86,7 +87,7 @@ const HomeHero: React.FC = () => {
           </h1>
 
           {/* Subtext */}
-          <p className="max-w-[580px] text-[16px] md:text-[18px] text-white/80 leading-[1.7] mb-9">
+          <p className="max-w-[560px] text-[16px] md:text-[18px] text-white/75 leading-[1.7] mb-9">
             A tech-enabled package protection platform that keeps customers happy, support teams
             unburdened, and your brand reputation intact — powered by InsureShip.
           </p>
@@ -110,7 +111,7 @@ const HomeHero: React.FC = () => {
           </div>
 
           {/* Social proof */}
-          <div className="flex items-center gap-2 text-[14px] text-white/50">
+          <div className="flex items-center gap-2 text-[14px] text-white/45">
             <CheckCircle size={16} className="text-ds-teal" />
             <span>Trusted by 10,000+ merchants</span>
           </div>
@@ -133,8 +134,8 @@ const HomeHero: React.FC = () => {
       </div>
 
       {/* ── Stats bar (overlapping) ──────────────────────────────── */}
-      <div className="relative z-20 -mt-10 md:-mt-14 pb-8 px-6">
-        <div className="max-w-[900px] mx-auto bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] px-8 py-8 md:px-12 md:py-10">
+      <div className="relative z-20 -mt-12 md:-mt-[48px] pb-8 px-6">
+        <div className="max-w-[900px] mx-auto bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] px-6 py-8 md:px-12 md:py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
             {STATS.map((stat, i) => (
               <StatItem key={stat.label} stat={stat} showDivider={i < STATS.length - 1} />
@@ -173,7 +174,7 @@ const StatItem: React.FC<StatItemProps> = ({ stat, showDivider }) => {
         {value}
         {stat.suffix}
       </span>
-      <span className="text-[14px] text-ds-neutral-500 uppercase tracking-[0.04em] font-medium">
+      <span className="text-[13px] text-ds-neutral-500 uppercase tracking-[0.05em] font-medium">
         {stat.label}
       </span>
     </div>
