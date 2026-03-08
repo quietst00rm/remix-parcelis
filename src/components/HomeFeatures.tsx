@@ -60,7 +60,7 @@ const HomeFeatures: React.FC = () => {
             <br />
             Automation That Saves Time.
           </h2>
-          <p className="text-[18px] text-ds-neutral-500 leading-[1.7] max-w-[640px] mx-auto">
+          <p className="font-dm text-[16px] md:text-[18px] text-ds-neutral-500 leading-[1.7] max-w-[620px] mx-auto">
             From checkout to claim resolution, Parcelis ensures a smooth, worry-free experience for both merchants and customers.
           </p>
         </div>
