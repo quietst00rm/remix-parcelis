@@ -5,6 +5,7 @@ import logoWhite from "@/assets/logo-white.png";
 import logo from "@/assets/logo.png";
 
 const NAV_LINKS = [
+  { name: "Home", path: "/" },
   { name: "How It Works", path: "/how-it-works" },
   { name: "Pricing", path: "/pricing" },
   { name: "About", path: "/about" },

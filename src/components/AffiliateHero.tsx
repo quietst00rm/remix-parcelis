@@ -1,81 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+
+const NOISE_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
 
 const AffiliateHero: React.FC = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <div className="relative overflow-x-clip pt-20" style={{ background: "linear-gradient(135deg, #101155 0%, #1e22aa 50%, #2e32d4 100%)" }}>
-      {/* Decorative background elements (Static Blobs) */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none z-0">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#4a4eff] rounded-full mix-blend-screen filter blur-3xl opacity-60 animate-blob"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#6a6eff] rounded-full mix-blend-screen filter blur-3xl opacity-60 animate-blob" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-[#3a3eff] rounded-full mix-blend-screen filter blur-3xl opacity-60 animate-blob" style={{ animationDelay: '4s' }}></div>
-      </div>
+    <section
+      className="relative overflow-x-clip -mt-[76px]"
+      style={{
+        background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #172554 100%)",
+      }}
+    >
+      <div className="absolute inset-0 pointer-events-none z-[1]" style={{ backgroundImage: NOISE_SVG, backgroundRepeat: "repeat", backgroundSize: "256px 256px" }} />
+      <div className="absolute inset-0 pointer-events-none z-[1]" style={{ background: "radial-gradient(ellipse 60% 50% at 65% 40%, rgba(59,130,246,0.15) 0%, transparent 70%)" }} />
 
-      {/* Animated Parallax Squares & Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-         <div 
-          className="absolute top-[15%] left-[5%] w-32 h-32 bg-white/5 rounded-lg backdrop-blur-3xl"
-          style={{ 
-              transform: `translateY(${scrollY * 0.3}px) rotate(${scrollY * 0.1}deg)`,
-              transition: 'transform 0.1s linear'
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-[20%] right-[5%] w-48 h-48 bg-blue-400/10 rounded-lg backdrop-blur-3xl"
-          style={{ 
-              transform: `translateY(${scrollY * 0.2}px) rotate(-${scrollY * 0.1}deg)`,
-              transition: 'transform 0.1s linear'
-          }}
-        ></div>
-        <div 
-          className="absolute top-[60%] left-[15%] w-24 h-24 bg-blue-300/10 rounded-lg backdrop-blur-md"
-          style={{ 
-              transform: `translateY(${scrollY * 0.25}px) rotate(${scrollY * 0.15}deg)`,
-              transition: 'transform 0.1s linear'
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-[10%] right-[35%] w-40 h-40 bg-white/5 rounded-lg backdrop-blur-xl"
-          style={{ 
-              transform: `translateY(-${scrollY * 0.1}px) rotate(${scrollY * 0.05}deg)`,
-              transition: 'transform 0.1s linear'
-          }}
-        ></div>
-        <div 
-          className="absolute top-[30%] right-[20%] w-16 h-16 bg-indigo-500/20 rounded-lg backdrop-blur-sm"
-          style={{ 
-              transform: `translateY(${scrollY * 0.4}px) rotate(-${scrollY * 0.3}deg)`,
-              transition: 'transform 0.1s linear'
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-[40%] left-[5%] w-28 h-28 bg-blue-500/10 rounded-lg backdrop-blur-md"
-          style={{ 
-              transform: `translateY(${scrollY * 0.15}px) rotate(-${20 + scrollY * 0.1}deg)`,
-              transition: 'transform 0.1s linear'
-          }}
-        ></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative z-10">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-            Become a Parcelis Affiliate
-          </h1>
-          
-          <p className="mt-4 text-lg text-blue-50 font-light leading-relaxed">
-            Fill out the form below to apply to become an affiliate. Once submitted, our team will review your details and contact you by email.
-          </p>
+      <div className="relative z-10 max-w-[720px] mx-auto px-6 text-center pt-[200px] md:pt-[220px] pb-28 md:pb-32 flex flex-col items-center">
+        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+          Become a Parcelis Affiliate
+        </h1>
+        <p className="text-lg text-white/70 mt-2 max-w-[580px] mx-auto leading-relaxed mb-9">
+          Fill out the form below to apply. Our team will review your details and contact you by email.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <a
+            href="https://apps.shopify.com/parcelis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-[#1E3A8A] font-semibold px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center"
+          >
+            Get Parcelis
+          </a>
+          <Link
+            to="/pricing"
+            className="border-2 border-white/30 text-white font-medium px-8 py-4 rounded-xl text-lg hover:bg-white/10 hover:border-white transition-all duration-200 w-full sm:w-auto text-center"
+          >
+            See Pricing
+          </Link>
         </div>
       </div>
-    </div>
+
+      <div className="absolute bottom-0 left-0 right-0 z-[2]">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-[30px] sm:h-[40px] md:h-[60px] block">
+          <path d="M0,60 L0,20 Q720,60 1440,20 L1440,60 Z" fill="white" />
+        </svg>
+      </div>
+    </section>
   );
 };
 
