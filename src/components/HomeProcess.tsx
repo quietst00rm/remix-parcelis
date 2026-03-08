@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { ChevronRight } from "lucide-react";
 
 const STEPS = [
   { num: 1, title: "Integrate", desc: "Connect via Shopify app or other platform integrations in minutes." },
@@ -32,36 +33,71 @@ const HomeProcess: React.FC = () => {
           Simple Process, Zero Hassle
         </h2>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-          {/* Connector lines (desktop only) */}
-          <div className="hidden md:block absolute top-8 left-[calc(33.33%+8px)] right-[calc(66.66%-8px)] border-t-2 border-dashed border-ds-neutral-300 z-0" />
-          <div className="hidden md:block absolute top-8 left-[calc(66.66%+8px)] right-[calc(33.33%-8px)] border-t-2 border-dashed border-ds-neutral-300 z-0" />
+        <div ref={ref} className="max-w-[1000px] mx-auto">
+          {/* Desktop layout */}
+          <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-0">
+            {STEPS.map((step, i) => (
+              <React.Fragment key={step.num}>
+                {/* Step */}
+                <div
+                  className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${
+                    visible ? "opacity-100 scale-100" : "opacity-0 scale-[0.9]"
+                  }`}
+                  style={{ transitionDelay: visible ? `${i * 200}ms` : "0ms" }}
+                >
+                  <div className="w-[72px] h-[72px] rounded-full bg-ds-primary flex items-center justify-center mb-6">
+                    <span className="font-heading text-[28px] font-bold text-white">{step.num}</span>
+                  </div>
+                  <h3 className="text-[22px] font-semibold text-ds-neutral-900 mb-3">{step.title}</h3>
+                  <p className="text-[15px] text-ds-neutral-500 leading-[1.6] max-w-[280px]">{step.desc}</p>
+                </div>
 
-          {STEPS.map((step, i) => (
-            <div
-              key={step.num}
-              className={`flex flex-col items-center text-center relative z-10 transition-all duration-500 ${
-                visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"
-              }`}
-              style={{ transitionDelay: visible ? `${i * 200}ms` : "0ms" }}
-            >
-              {/* Mobile connector line (between steps) */}
-              {i > 0 && (
-                <div className="md:hidden w-px h-8 border-l-2 border-dashed border-ds-neutral-300 -mt-4 mb-4" />
-              )}
+                {/* Connector (between steps) */}
+                {i < STEPS.length - 1 && (
+                  <div
+                    className={`flex items-center self-start mt-[34px] px-2 transition-all duration-500 ease-out ${
+                      visible ? "opacity-100" : "opacity-0"
+                    }`}
+                    style={{ transitionDelay: visible ? "600ms" : "0ms" }}
+                  >
+                    <div className="w-16 lg:w-24 border-t-2 border-dashed border-ds-neutral-300" />
+                    <ChevronRight size={16} className="text-ds-neutral-300 -ml-1 flex-shrink-0" />
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
 
-              {/* Step circle */}
-              <div className="w-16 h-16 rounded-full bg-ds-primary flex items-center justify-center mb-5">
-                <span className="font-heading text-[28px] font-bold text-white">{step.num}</span>
-              </div>
+          {/* Mobile layout */}
+          <div className="flex flex-col items-center gap-0 md:hidden">
+            {STEPS.map((step, i) => (
+              <React.Fragment key={step.num}>
+                {/* Vertical connector */}
+                {i > 0 && (
+                  <div
+                    className={`w-px h-8 border-l-2 border-dashed border-ds-neutral-300 my-2 transition-all duration-500 ease-out ${
+                      visible ? "opacity-100" : "opacity-0"
+                    }`}
+                    style={{ transitionDelay: visible ? "600ms" : "0ms" }}
+                  />
+                )}
 
-              {/* Title */}
-              <h3 className="text-[20px] font-semibold text-ds-neutral-900 mb-3">{step.title}</h3>
-
-              {/* Description */}
-              <p className="text-[15px] text-ds-neutral-500 leading-[1.6] max-w-[280px]">{step.desc}</p>
-            </div>
-          ))}
+                {/* Step */}
+                <div
+                  className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${
+                    visible ? "opacity-100 scale-100" : "opacity-0 scale-[0.9]"
+                  }`}
+                  style={{ transitionDelay: visible ? `${i * 200}ms` : "0ms" }}
+                >
+                  <div className="w-[72px] h-[72px] rounded-full bg-ds-primary flex items-center justify-center mb-6">
+                    <span className="font-heading text-[28px] font-bold text-white">{step.num}</span>
+                  </div>
+                  <h3 className="text-[22px] font-semibold text-ds-neutral-900 mb-3">{step.title}</h3>
+                  <p className="text-[15px] text-ds-neutral-500 leading-[1.6] max-w-[280px]">{step.desc}</p>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
     </section>
