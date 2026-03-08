@@ -275,8 +275,8 @@ const Navbar: React.FC = () => {
           </span>
           {[
             { name: "FAQ", path: "/faq" },
-            { name: "Blog", path: "/blog" },
             { name: "Self-Insurance Risks", path: "/risk-calculator" },
+            { name: "Blog", path: "/blog" },
           ].map((link) => (
             <Link
               key={link.path}
