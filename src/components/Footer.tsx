@@ -1,68 +1,123 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Mail, Shield } from 'lucide-react';
-import logoWhite from '@/assets/logo-white.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Mail, Shield } from "lucide-react";
+import logoWhite from "@/assets/logo-white.png";
+
+const productLinks = [
+  { name: "How It Works", path: "/how-it-works" },
+  { name: "Pricing", path: "/pricing" },
+  { name: "Risk Calculator", path: "/risk-calculator" },
+];
+
+const companyLinks = [
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+  { name: "Apply Now", path: "/apply" },
+  { name: "Blog", path: "/blog" },
+];
+
+const legalLinks = [
+  { name: "Privacy Policy", path: "/privacy" },
+  { name: "Terms of Use", path: "/terms" },
+  { name: "Affiliate Program", path: "/affiliate-program" },
+];
+
+const FooterHeading: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <h4 className="text-[13px] font-semibold uppercase tracking-[0.05em] text-ds-neutral-400 mb-5">
+    {children}
+  </h4>
+);
+
+const FooterLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => (
+  <li>
+    <Link
+      to={to}
+      className="text-[15px] text-ds-neutral-300 hover:text-white transition-colors duration-200"
+    >
+      {children}
+    </Link>
+  </li>
+);
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-brand-footer text-gray-300 py-24 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-16">
-          
-          {/* Brand Column */}
-          <div className="col-span-1 md:col-span-2 pr-8 flex flex-col items-start">
-             <div className="flex flex-col items-start gap-4 mb-8">
-               <img src={logoWhite} alt="PARCELIS Logo" className="h-14 w-auto" />
-            </div>
-            <p className="text-lg text-gray-400 leading-relaxed mb-6 max-w-sm">
+    <footer className="bg-ds-surface-dark">
+      {/* Top separator line */}
+      <div className="w-full h-px bg-white/10" />
+
+      <div className="max-w-[1200px] mx-auto px-6 pt-16 pb-10">
+        {/* 4-column grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+          {/* Column 1 – Brand (wider) */}
+          <div className="lg:col-span-4">
+            <Link to="/" aria-label="PARCELIS Home">
+              <img src={logoWhite} alt="PARCELIS Logo" className="h-10 w-auto mb-5" />
+            </Link>
+            <p className="text-[14px] text-ds-neutral-400 leading-relaxed max-w-xs mb-3">
               Turn package protection into profit. Zero hassle. Real insurance.
             </p>
+            <p className="text-[13px] text-ds-neutral-500 leading-relaxed max-w-xs">
+              Licensed package protection backed by InsureShip.
+            </p>
           </div>
-          
-          {/* Links Columns */}
-          <div>
-            <h4 className="text-white font-bold mb-8 tracking-wider text-sm uppercase opacity-70">Product</h4>
-            <ul className="space-y-6 text-lg">
-              <li><Link to="/how-it-works" className="hover:text-white transition-colors text-gray-400 font-medium">How It Works</Link></li>
-              <li><Link to="/pricing" className="hover:text-white transition-colors text-gray-400 font-medium">Pricing</Link></li>
-              <li><Link to="/risk-calculator" className="hover:text-white transition-colors text-gray-400 font-medium">Risk Calculator</Link></li>
+
+          {/* Column 2 – Product */}
+          <div className="lg:col-span-2 lg:col-start-6">
+            <FooterHeading>Product</FooterHeading>
+            <ul className="flex flex-col gap-3" role="list">
+              {productLinks.map((link) => (
+                <FooterLink key={link.path} to={link.path}>
+                  {link.name}
+                </FooterLink>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-8 tracking-wider text-sm uppercase opacity-70">Company</h4>
-            <ul className="space-y-6 text-lg">
-              <li><Link to="/about" className="hover:text-white transition-colors text-gray-400 font-medium">About</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors text-gray-400 font-medium">Contact</Link></li>
-              <li><Link to="/apply" className="hover:text-white transition-colors text-gray-400 font-medium">Apply Now</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition-colors text-gray-400 font-medium">Blog</Link></li>
+          {/* Column 3 – Company */}
+          <div className="lg:col-span-2">
+            <FooterHeading>Company</FooterHeading>
+            <ul className="flex flex-col gap-3" role="list">
+              {companyLinks.map((link) => (
+                <FooterLink key={link.path} to={link.path}>
+                  {link.name}
+                </FooterLink>
+              ))}
             </ul>
           </div>
 
-          <div>
-             <h4 className="text-white font-bold mb-8 tracking-wider text-sm uppercase opacity-70">Legal</h4>
-             <ul className="space-y-6 text-lg mb-10">
-              <li><Link to="/privacy" className="hover:text-white transition-colors text-gray-400 font-medium">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-white transition-colors text-gray-400 font-medium">Terms of Use</Link></li>
-              <li><Link to="/affiliate-program" className="hover:text-white transition-colors text-gray-400 font-medium">Affiliate Program</Link></li>
+          {/* Column 4 – Legal + Contact */}
+          <div className="lg:col-span-2">
+            <FooterHeading>Legal</FooterHeading>
+            <ul className="flex flex-col gap-3 mb-8" role="list">
+              {legalLinks.map((link) => (
+                <FooterLink key={link.path} to={link.path}>
+                  {link.name}
+                </FooterLink>
+              ))}
             </ul>
 
-            <h4 className="text-white font-bold mb-4 tracking-wider text-sm uppercase opacity-70">Contact</h4>
-            <a href="mailto:hello@myparcelis.com" className="flex items-center gap-3 text-lg text-gray-400 hover:text-white transition-colors font-medium">
-                <Mail size={20} />
-                hello@myparcelis.com
+            <FooterHeading>Contact</FooterHeading>
+            <a
+              href="mailto:hello@myparcelis.com"
+              className="inline-flex items-center gap-2 text-[15px] text-ds-neutral-300 hover:text-white transition-colors duration-200"
+              aria-label="Email hello@myparcelis.com"
+            >
+              <Mail size={16} />
+              hello@myparcelis.com
             </a>
           </div>
-
         </div>
 
-        <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} PARCELIS. All rights reserved.</p>
-          <div className="flex items-center gap-3 mt-6 md:mt-0">
+        {/* Bottom bar */}
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-[13px] text-ds-neutral-500">
+            &copy; {new Date().getFullYear()} PARCELIS. All rights reserved.
+          </p>
+          <div className="flex items-center gap-2 text-[13px] text-ds-neutral-500">
             <span>Powered by</span>
-            <div className="bg-white/10 px-4 py-1.5 rounded-full flex items-center gap-2 text-gray-300 font-semibold">
-                <Shield size={14} className="text-gray-300" />
-                InsureShip
+            <div className="bg-white/10 px-3 py-1 rounded-full flex items-center gap-1.5 text-ds-neutral-300 font-semibold text-[13px]">
+              <Shield size={13} />
+              InsureShip
             </div>
           </div>
         </div>

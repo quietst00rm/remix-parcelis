@@ -21,6 +21,8 @@ export default {
         sans: ["Inter", "var(--font-urbanpolis)"],
         inter: ["Inter", "sans-serif"],
         urbanpolis: ["var(--font-urbanpolis)"],
+        dm: ['"DM Sans"', "sans-serif"],
+        heading: ['"Plus Jakarta Sans"', "sans-serif"],
       },
       fontSize: {
         h1: "var(--font-size-h1)",
@@ -52,6 +54,29 @@ export default {
           100: "#e0e2ff",
           900: "#101155",
           footer: "#1c206e",
+        },
+        /* Parcelis Design System v2.0 */
+        "ds-primary": {
+          DEFAULT: "#1E3A8A",
+          light: "#3B82F6",
+          dark: "#172554",
+        },
+        "ds-teal": "#0D9488",
+        "ds-amber": "#F59E0B",
+        "ds-neutral": {
+          50: "#F8FAFC",
+          100: "#F1F5F9",
+          200: "#E2E8F0",
+          300: "#CBD5E1",
+          400: "#94A3B8",
+          500: "#64748B",
+          700: "#334155",
+          900: "#0F172A",
+        },
+        "ds-surface": {
+          dark: "#0F172A",
+          elevated: "#1E293B",
+          border: "#334155",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
