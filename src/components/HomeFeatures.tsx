@@ -87,7 +87,7 @@ const HomeFeatures: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-[20px] font-semibold text-ds-neutral-900 mb-3">
+                <h3 className="font-heading text-[20px] font-semibold text-ds-neutral-900 leading-[1.3] mb-3">
                   {f.title}
                 </h3>
 
