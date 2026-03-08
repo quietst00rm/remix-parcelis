@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Shield, Award, Clock } from "lucide-react";
+import { Shield, Award, Clock, ChevronRight } from "lucide-react";
 
 const ITEMS = [
   {
@@ -79,13 +79,13 @@ const HomeTrust: React.FC = () => {
             return (
               <div
                 key={item.title}
-                className={`bg-ds-surface-elevated border border-ds-surface-border rounded-2xl p-6 md:p-8 flex flex-col items-center text-center hover:border-ds-primary-light transition-all duration-200 ${
+                className={`bg-ds-surface-elevated border border-ds-surface-border rounded-2xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-200 ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{
                   transitionDelay: visible ? `${i * 100}ms` : "0ms",
-                  transitionProperty: "opacity, transform, border-color",
-                  transitionDuration: "500ms, 500ms, 200ms",
+                  transitionProperty: "opacity, transform",
+                  transitionDuration: "500ms",
                 }}
               >
                 <div
@@ -96,8 +96,9 @@ const HomeTrust: React.FC = () => {
                 </div>
                 <h3 className="font-heading text-[20px] font-semibold text-white leading-[1.3] mb-3">{item.title}</h3>
                 <p className="font-dm text-[15px] text-white/60 leading-[1.6] mb-6">{item.text}</p>
-                <div className="mt-auto border border-white/20 rounded-full px-4 py-2 text-[10px] font-bold text-white tracking-widest uppercase">
+                <div className="mt-auto flex items-center gap-1 text-ds-teal text-[13px] font-medium uppercase tracking-[0.04em] hover:text-[#5EEAD4] transition-colors duration-150 cursor-default">
                   {item.badge}
+                  <ChevronRight size={14} />
                 </div>
               </div>
             );
