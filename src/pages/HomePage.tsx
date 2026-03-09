@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeHero from '@/components/HomeHero';
+import HomeVideo from '@/components/HomeVideo';
 import HomeValueProps from '@/components/HomeValueProps';
 import HomeSplitFeature from '@/components/HomeSplitFeature';
 import HomeFeatures from '@/components/HomeFeatures';
@@ -15,6 +16,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="flex flex-col w-full">
       <HomeHero />
+      <HomeVideo />
       <HomeValueProps />
       <HomeSplitFeature />
       <HomeFeatures />
