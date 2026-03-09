@@ -1,64 +1,51 @@
 
 
-## Redesign Contact Page — Professional Layout
+## Problem
 
-### Problems
-1. "Contact Information" with just an email floats alone in a half-width column — massive empty space
-2. Form is shoved to the right instead of being the focal point
-3. Empty button in "Other Ways to Get Help" (line 192 is an empty `<Button>`)
-4. No visual accent or polish on the form card
-5. Sections below feel disconnected and unstyled
+The "Fourth Option" conversion card on comparison blog posts has dark text on a dark blue background because the `.blog-prose` CSS rules in `index.css` apply `color: #374151` to `p`, `color: #1a1a2e` to `h3`/`strong`, and `color: #1e22aa` to `a` elements. The `not-prose` class has no effect here because the project uses custom CSS selectors (`.blog-prose p`, `.blog-prose h3`, etc.), not the Tailwind Typography plugin where `not-prose` is defined.
 
-### New Layout
+This affects:
+1. The h3 heading ("Parcelis: Real Insurance...") — dark instead of white
+2. The paragraph/list text — dark instead of white  
+3. The "Calculate Your Revenue" button border text — link color override
+4. The "View on Shopify App Store" link — blue instead of cyan
 
-```text
-┌──────────────────────────────────────────────────────┐
-│                    HERO (unchanged)                  │
-└──────────────────────────────────────────────────────┘
+## Fix
 
-┌──────────────────────────────────────────────────────┐
-│              max-w-2xl centered form card             │
-│  ┌────────────────────────────────────────────────┐  │
-│  │  Blue top accent bar (4px h-1 bg-primary)      │  │
-│  │                                                │  │
-│  │  "Send Us a Message"                           │  │
-│  │  subtitle text                                 │  │
-│  │                                                │  │
-│  │  [Name]              [Email]     (2-col grid)  │  │
-│  │  [Company]           [Subject]   (2-col grid)  │  │
-│  │  [Message — full width]                        │  │
-│  │  [Send Message button]                         │  │
-│  │                                                │  │
-│  │  📧 support@myparcelis.com (inline at bottom)  │  │
-│  └────────────────────────────────────────────────┘  │
-└──────────────────────────────────────────────────────┘
+Add CSS exclusion rules in `src/index.css` so that `.blog-prose` color styles do not apply inside any element with `data-theme="dark"` (or a dedicated class). Then add that attribute to the Fourth Option card in `ComparisonPostContent.tsx`.
 
-┌──────────────────────────────────────────────────────┐
-│  "Other Ways to Get Help" — 3 uniform styled cards   │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │
-│  │ 📧 Email Us │  │ 🛒 Get App  │  │ 💰 Pricing  │  │
-│  │ direct link │  │ Shopify link│  │ /pricing     │  │
-│  └─────────────┘  └─────────────┘  └─────────────┘  │
-└──────────────────────────────────────────────────────┘
+### File 1: `src/index.css`
 
-┌──────────────────────────────────────────────────────┐
-│          Supported Carriers (unchanged)              │
-└──────────────────────────────────────────────────────┘
+Add scoped exclusions after the existing blog-prose rules. Every rule that sets a color gets a `:not()` exclusion for elements inside a `[data-theme="dark"]` container:
+
+```css
+/* Exclude dark-themed containers from blog prose color overrides */
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p,
+[data-theme="dark"] a,
+[data-theme="dark"] strong,
+[data-theme="dark"] li,
+[data-theme="dark"] span {
+  color: inherit !important;
+}
+
+[data-theme="dark"] a:hover {
+  color: inherit !important;
+}
 ```
 
-### Changes — `src/pages/ContactPage.tsx`
+### File 2: `src/components/blog/ComparisonPostContent.tsx`
 
-1. **Remove the 2-column grid** — kill the "Contact Information" left column entirely
-2. **Center the form** in a `max-w-2xl mx-auto` card with:
-   - Blue accent bar at top (`h-1 bg-primary rounded-t-2xl`)
-   - Card: `rounded-2xl border border-gray-200 shadow-lg p-8 md:p-10`
-   - Name + Email in a 2-col grid on md+
-   - Company + Subject in a 2-col grid on md+
-   - Email contact info as a small inline note below the submit button
-3. **Fix "Other Ways to Get Help"** — remove the empty button, restyle as 3 proper cards with icons (Mail, ShoppingBag, DollarSign from lucide), consistent `rounded-2xl border shadow-sm hover:shadow-md` styling
-4. **Remove redundant `useEffect` scroll-to-top** (already handled globally)
-5. **Import cleanup** — add needed Lucide icons, remove unused imports
+Add `data-theme="dark"` to the Fourth Option card div (line 254), so the CSS exclusion applies:
 
-### Files
-- `src/pages/ContactPage.tsx` — full restructure
+```tsx
+<div data-theme="dark" className="not-prose bg-gradient-to-br from-[#1e22aa] to-[#1a1a6e] rounded-xl p-6 md:p-8 text-white mt-6 mb-6">
+```
+
+This ensures all child text inside that card inherits white/cyan colors as specified by the inline Tailwind classes, rather than being overridden by the `.blog-prose` global styles.
+
+### Files changed
+- `src/index.css` — add dark theme exclusion rules
+- `src/components/blog/ComparisonPostContent.tsx` — add `data-theme="dark"` attribute to card
 
