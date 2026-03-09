@@ -16,6 +16,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="flex flex-col w-full">
       <HomeHero />
+      <HomeVideo />
       <HomeValueProps />
       <HomeSplitFeature />
       <HomeFeatures />
