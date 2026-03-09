@@ -1,11 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import PartnerDirectory from "@/components/partners/PartnerDirectory";
 
 const OurPartnersPage: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <>
