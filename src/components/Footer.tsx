@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, Shield } from "lucide-react";
+import { Mail, Shield, Linkedin } from "lucide-react";
 import logoWhite from "@/assets/logo-white.png";
 
 const productLinks = [
@@ -67,6 +67,15 @@ const Footer: React.FC = () => {
             <p className="text-[13px] text-ds-neutral-500 leading-relaxed max-w-xs">
               Licensed package protection backed by InsureShip.
             </p>
+            <a
+              href="https://www.linkedin.com/company/myparcelis/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="PARCELIS on LinkedIn"
+              className="mt-4 inline-block text-ds-neutral-400 hover:text-white transition-colors duration-200"
+            >
+              <Linkedin size={20} />
+            </a>
           </div>
 
           {/* Product */}
