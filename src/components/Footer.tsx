@@ -54,10 +54,85 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-ds-surface-dark" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-14 md:pt-16 pb-10">
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-8 text-center sm:text-left">
+
+        {/* ── Mobile layout ── */}
+        <div className="lg:hidden">
+          {/* Brand – centered */}
+          <div className="flex flex-col items-center text-center mb-8">
+            <Link to="/" aria-label="PARCELIS Home">
+              <img src={logoWhite} alt="PARCELIS Logo" className="h-10 w-auto mb-5" />
+            </Link>
+            <p className="text-[14px] text-ds-neutral-400 leading-relaxed max-w-xs mb-3">
+              Turn package protection into profit. Zero hassle. Real insurance.
+            </p>
+            <p className="text-[13px] text-ds-neutral-500 leading-relaxed max-w-xs">
+              Licensed package protection backed by InsureShip.
+            </p>
+            <a
+              href="https://www.linkedin.com/company/myparcelis/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="PARCELIS on LinkedIn"
+              className="mt-4 inline-block text-ds-neutral-400 hover:text-white transition-colors duration-200"
+            >
+              <Linkedin size={20} />
+            </a>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-white/10 mb-8" />
+
+          {/* 2-col link grid – left-aligned */}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10">
+            {/* Col 1: Product + Legal */}
+            <div>
+              <FooterHeading>Product</FooterHeading>
+              <ul className="flex flex-col gap-3 mb-10" role="list">
+                {productLinks.map((link) => (
+                  <FooterLink key={link.path} to={link.path}>
+                    {link.name}
+                  </FooterLink>
+                ))}
+              </ul>
+
+              <FooterHeading>Legal</FooterHeading>
+              <ul className="flex flex-col gap-3" role="list">
+                {legalLinks.map((link) => (
+                  <FooterLink key={link.path} to={link.path}>
+                    {link.name}
+                  </FooterLink>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 2: Company + Contact */}
+            <div>
+              <FooterHeading>Company</FooterHeading>
+              <ul className="flex flex-col gap-3 mb-10" role="list">
+                {companyLinks.map((link) => (
+                  <FooterLink key={link.path} to={link.path} external={'external' in link && link.external}>
+                    {link.name}
+                  </FooterLink>
+                ))}
+              </ul>
+
+              <FooterHeading>Contact</FooterHeading>
+              <a
+                href="mailto:hello@myparcelis.com"
+                className="inline-flex items-center gap-2 text-[15px] text-ds-neutral-300 hover:text-white transition-colors duration-200"
+                aria-label="Email hello@myparcelis.com"
+              >
+                <Mail size={16} />
+                <span className="break-all">hello@myparcelis.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Desktop layout ── */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 text-left">
           {/* Brand */}
-          <div className="lg:col-span-4 flex flex-col items-center sm:items-start">
+          <div className="col-span-4 flex flex-col items-start">
             <Link to="/" aria-label="PARCELIS Home">
               <img src={logoWhite} alt="PARCELIS Logo" className="h-10 w-auto mb-5" />
             </Link>
@@ -79,7 +154,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Product */}
-          <div className="lg:col-span-2 lg:col-start-6">
+          <div className="col-span-2 col-start-6">
             <FooterHeading>Product</FooterHeading>
             <ul className="flex flex-col gap-3" role="list">
               {productLinks.map((link) => (
@@ -91,7 +166,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Company */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2">
             <FooterHeading>Company</FooterHeading>
             <ul className="flex flex-col gap-3" role="list">
               {companyLinks.map((link) => (
@@ -103,7 +178,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Legal + Contact */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2">
             <FooterHeading>Legal</FooterHeading>
             <ul className="flex flex-col gap-3 mb-8" role="list">
               {legalLinks.map((link) => (
