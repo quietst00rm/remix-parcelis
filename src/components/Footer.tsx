@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, Shield } from "lucide-react";
+import { Mail, Shield, Linkedin } from "lucide-react";
 import logoWhite from "@/assets/logo-white.png";
 
 const productLinks = [
