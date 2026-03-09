@@ -57,6 +57,7 @@ const AppRoutes: React.FC = () => {
         </Routes>
       </main>
       <Footer />
+      <CookieConsentBanner />
     </div>
   );
 };
