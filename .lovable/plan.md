@@ -1,31 +1,51 @@
 
-GOAL: Ensure all internal navigation links scroll the page to the top when clicked.
 
-CURRENT STATE:
-- Individual pages manually call `window.scrollTo(0, 0)` in useEffect hooks
-- This works but is scattered and inconsistent
-- Blog pagination has its own scroll-to-top logic
-- No global mechanism for all navigation
+## Problem
 
-SOLUTION: Create a global scroll-to-top hook that listens to route changes.
+The "Fourth Option" conversion card on comparison blog posts has dark text on a dark blue background because the `.blog-prose` CSS rules in `index.css` apply `color: #374151` to `p`, `color: #1a1a2e` to `h3`/`strong`, and `color: #1e22aa` to `a` elements. The `not-prose` class has no effect here because the project uses custom CSS selectors (`.blog-prose p`, `.blog-prose h3`, etc.), not the Tailwind Typography plugin where `not-prose` is defined.
 
-APPROACH:
-1. Create a new file: `src/hooks/use-scroll-to-top.ts`
-   - Custom hook that uses `useLocation()` from react-router-dom
-   - Watches for pathname changes and calls `window.scrollTo(0, 0)` on every route change
-   - Use an empty dependency array on the outer useEffect, with location.pathname in a nested useEffect to detect changes
+This affects:
+1. The h3 heading ("Parcelis: Real Insurance...") — dark instead of white
+2. The paragraph/list text — dark instead of white  
+3. The "Calculate Your Revenue" button border text — link color override
+4. The "View on Shopify App Store" link — blue instead of cyan
 
-2. In `src/App.tsx`:
-   - Add the hook call at the top level of the App component
-   - This ensures it fires on every route change globally
-   - Works for internal links in nav, footer, breadcrumbs, and anywhere else
+## Fix
 
-3. OPTIONAL: Remove individual `window.scrollTo(0, 0)` from page components for cleaner code (each page file has a useEffect doing this)
-   - This is optional since the global hook will handle it anyway
-   - Leaving them in place is harmless and doesn't break anything
+Add CSS exclusion rules in `src/index.css` so that `.blog-prose` color styles do not apply inside any element with `data-theme="dark"` (or a dedicated class). Then add that attribute to the Fourth Option card in `ComparisonPostContent.tsx`.
 
-OUTCOME:
-- All clicks on internal navigation links automatically scroll to top
-- Works for all links everywhere (nav, footer, breadcrumbs, inline links, pagination)
-- Future links automatically get this behavior
-- No per-page configuration needed
+### File 1: `src/index.css`
+
+Add scoped exclusions after the existing blog-prose rules. Every rule that sets a color gets a `:not()` exclusion for elements inside a `[data-theme="dark"]` container:
+
+```css
+/* Exclude dark-themed containers from blog prose color overrides */
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p,
+[data-theme="dark"] a,
+[data-theme="dark"] strong,
+[data-theme="dark"] li,
+[data-theme="dark"] span {
+  color: inherit !important;
+}
+
+[data-theme="dark"] a:hover {
+  color: inherit !important;
+}
+```
+
+### File 2: `src/components/blog/ComparisonPostContent.tsx`
+
+Add `data-theme="dark"` to the Fourth Option card div (line 254), so the CSS exclusion applies:
+
+```tsx
+<div data-theme="dark" className="not-prose bg-gradient-to-br from-[#1e22aa] to-[#1a1a6e] rounded-xl p-6 md:p-8 text-white mt-6 mb-6">
+```
+
+This ensures all child text inside that card inherits white/cyan colors as specified by the inline Tailwind classes, rather than being overridden by the `.blog-prose` global styles.
+
+### Files changed
+- `src/index.css` — add dark theme exclusion rules
+- `src/components/blog/ComparisonPostContent.tsx` — add `data-theme="dark"` attribute to card
+

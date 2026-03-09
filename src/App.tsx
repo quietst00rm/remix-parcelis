@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { useScrollToTop } from "./hooks/use-scroll-to-top";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import HowItWorksPage from "./pages/HowItWorksPage";
@@ -28,37 +29,44 @@ import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
+const AppRoutes: React.FC = () => {
+  useScrollToTop();
+  return (
+    <div className="flex flex-col min-h-screen bg-white text-slate-900">
+      <Navbar />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/apply" element={<ApplyPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/affiliate-program" element={<AffiliatePage />} />
+          <Route path="/risk-calculator" element={<RiskCalculatorPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/calculate" element={<CalculatePage />} />
+          <Route path="/partner-with-us" element={<PartnerPage />} />
+          <Route path="/our-partners" element={<OurPartnersPage />} />
+          <Route path="/blog" element={<BlogIndexPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <BrowserRouter>
-            <div className="flex flex-col min-h-screen bg-white text-slate-900">
-              <Navbar />
-              <main className="flex-grow">
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/about" element={<AboutPage />} />
-                  <Route path="/how-it-works" element={<HowItWorksPage />} />
-                  <Route path="/pricing" element={<PricingPage />} />
-                  <Route path="/contact" element={<ContactPage />} />
-                  <Route path="/apply" element={<ApplyPage />} />
-                  <Route path="/faq" element={<FAQPage />} />
-                  <Route path="/affiliate-program" element={<AffiliatePage />} />
-                  <Route path="/risk-calculator" element={<RiskCalculatorPage />} />
-                  <Route path="/privacy" element={<PrivacyPage />} />
-                  <Route path="/terms" element={<TermsPage />} />
-                  <Route path="/calculate" element={<CalculatePage />} />
-                  <Route path="/partner-with-us" element={<PartnerPage />} />
-                  <Route path="/our-partners" element={<OurPartnersPage />} />
-                  <Route path="/blog" element={<BlogIndexPage />} />
-                  <Route path="/blog/:slug" element={<BlogPostPage />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </main>
-              <Footer />
-            </div>
+            <AppRoutes />
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>
