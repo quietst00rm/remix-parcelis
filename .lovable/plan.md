@@ -1,65 +1,51 @@
 
 
-## Cookie Consent Banner — Full Compliance
+## Problem
 
-### Tracking Scripts Identified
-Currently loaded unconditionally in `index.html`:
-- **Google Analytics** (G-C2GCQ0JLGN)
-- **Ahrefs Analytics**
-- **Microsoft Clarity**
+The "Fourth Option" conversion card on comparison blog posts has dark text on a dark blue background because the `.blog-prose` CSS rules in `index.css` apply `color: #374151` to `p`, `color: #1a1a2e` to `h3`/`strong`, and `color: #1e22aa` to `a` elements. The `not-prose` class has no effect here because the project uses custom CSS selectors (`.blog-prose p`, `.blog-prose h3`, etc.), not the Tailwind Typography plugin where `not-prose` is defined.
 
-For GDPR/UK GDPR compliance, these must **not fire until the user consents**. For US (CCPA/state laws), an opt-out model is acceptable but we'll use opt-in as the strictest standard.
+This affects:
+1. The h3 heading ("Parcelis: Real Insurance...") — dark instead of white
+2. The paragraph/list text — dark instead of white  
+3. The "Calculate Your Revenue" button border text — link color override
+4. The "View on Shopify App Store" link — blue instead of cyan
 
-### Approach
+## Fix
 
-**1. Create `CookieConsentBanner.tsx` component**
-- Fixed bottom banner with two columns: left = text explaining cookies with link to `/privacy`, right = buttons
-- Three buttons: "Reject All", "Customize", "Accept All"
-- On "Customize": expand an inline panel with toggle switches for:
-  - **Necessary** (always on, disabled toggle)
-  - **Analytics** (Google Analytics, Ahrefs)
-  - **Functional** (Microsoft Clarity session recording)
-- Stores consent in `localStorage` key `parcelis_cookie_consent` as JSON `{ analytics: bool, functional: bool, timestamp: string }`
-- If no consent stored, banner shows. If consent exists, banner hidden.
-- Design system compliant: `bg-[#0F172A]` dark surface, white text, primary blue accept button, ghost reject button, `rounded-2xl` on desktop
+Add CSS exclusion rules in `src/index.css` so that `.blog-prose` color styles do not apply inside any element with `data-theme="dark"` (or a dedicated class). Then add that attribute to the Fourth Option card in `ComparisonPostContent.tsx`.
 
-**2. Create `src/lib/cookies.ts` utility**
-- `getConsent()`: reads localStorage, returns consent object or null
-- `setConsent(prefs)`: saves to localStorage
-- `loadAnalytics()`: dynamically injects GA + Ahrefs scripts
-- `loadFunctional()`: dynamically injects Clarity script
-- `revokeConsent()`: clears scripts (sets flag, scripts only fully stop on next page load)
+### File 1: `src/index.css`
 
-**3. Modify `index.html`**
-- **Remove** all three tracking scripts (GA, Ahrefs, Clarity) from the `<head>` — they'll be loaded dynamically after consent
+Add scoped exclusions after the existing blog-prose rules. Every rule that sets a color gets a `:not()` exclusion for elements inside a `[data-theme="dark"]` container:
 
-**4. Modify `App.tsx`**
-- Import and render `<CookieConsentBanner />` at the root level (outside routes, always visible)
-- On mount, check consent and load approved scripts via the utility
+```css
+/* Exclude dark-themed containers from blog prose color overrides */
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p,
+[data-theme="dark"] a,
+[data-theme="dark"] strong,
+[data-theme="dark"] li,
+[data-theme="dark"] span {
+  color: inherit !important;
+}
 
-### Banner Design
-```text
-┌──────────────────────────────────────────────────────────────────┐
-│  🍪 We use cookies to analyze site traffic and optimize your    │
-│  experience. Learn more in our Privacy Policy.                  │
-│                                                                 │
-│  [Reject All]  [Customize]  [Accept All]                        │
-└──────────────────────────────────────────────────────────────────┘
+[data-theme="dark"] a:hover {
+  color: inherit !important;
+}
 ```
 
-Expanded customize view:
-```text
-│  ┌─ Necessary cookies          [always on] ──┐                  │
-│  ├─ Analytics (GA, Ahrefs)     [toggle]     ──┤                  │
-│  ├─ Functional (Clarity)       [toggle]     ──┤                  │
-│  └─ [Save Preferences]                      ──┘                  │
+### File 2: `src/components/blog/ComparisonPostContent.tsx`
+
+Add `data-theme="dark"` to the Fourth Option card div (line 254), so the CSS exclusion applies:
+
+```tsx
+<div data-theme="dark" className="not-prose bg-gradient-to-br from-[#1e22aa] to-[#1a1a6e] rounded-xl p-6 md:p-8 text-white mt-6 mb-6">
 ```
 
-### Files
-| File | Action |
-|---|---|
-| `src/lib/cookies.ts` | Create — consent storage + dynamic script loader |
-| `src/components/CookieConsentBanner.tsx` | Create — banner UI |
-| `index.html` | Edit — remove 3 tracking scripts from head |
-| `src/App.tsx` | Edit — add banner + consent-based script loading on mount |
+This ensures all child text inside that card inherits white/cyan colors as specified by the inline Tailwind classes, rather than being overridden by the `.blog-prose` global styles.
+
+### Files changed
+- `src/index.css` — add dark theme exclusion rules
+- `src/components/blog/ComparisonPostContent.tsx` — add `data-theme="dark"` attribute to card
 

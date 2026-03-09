@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import CookieConsentBanner from "./components/CookieConsentBanner";
 import { useScrollToTop } from "./hooks/use-scroll-to-top";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -56,6 +57,7 @@ const AppRoutes: React.FC = () => {
         </Routes>
       </main>
       <Footer />
+      <CookieConsentBanner />
     </div>
   );
 };
