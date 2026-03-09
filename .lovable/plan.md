@@ -1,51 +1,38 @@
 
+## Redesign Pricing Calculator Layout
 
-## Problem
+### Problem
+The current calculator card spans `max-w-5xl` (1024px) but only contains a single input field, making it feel oversized and awkward.
 
-The "Fourth Option" conversion card on comparison blog posts has dark text on a dark blue background because the `.blog-prose` CSS rules in `index.css` apply `color: #374151` to `p`, `color: #1a1a2e` to `h3`/`strong`, and `color: #1e22aa` to `a` elements. The `not-prose` class has no effect here because the project uses custom CSS selectors (`.blog-prose p`, `.blog-prose h3`, etc.), not the Tailwind Typography plugin where `not-prose` is defined.
+### Solution
+Redesign as a **compact, two-column horizontal layout** that integrates the input and result side-by-side:
 
-This affects:
-1. The h3 heading ("Parcelis: Real Insurance...") — dark instead of white
-2. The paragraph/list text — dark instead of white  
-3. The "Calculate Your Revenue" button border text — link color override
-4. The "View on Shopify App Store" link — blue instead of cyan
-
-## Fix
-
-Add CSS exclusion rules in `src/index.css` so that `.blog-prose` color styles do not apply inside any element with `data-theme="dark"` (or a dedicated class). Then add that attribute to the Fourth Option card in `ComparisonPostContent.tsx`.
-
-### File 1: `src/index.css`
-
-Add scoped exclusions after the existing blog-prose rules. Every rule that sets a color gets a `:not()` exclusion for elements inside a `[data-theme="dark"]` container:
-
-```css
-/* Exclude dark-themed containers from blog prose color overrides */
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] p,
-[data-theme="dark"] a,
-[data-theme="dark"] strong,
-[data-theme="dark"] li,
-[data-theme="dark"] span {
-  color: inherit !important;
-}
-
-[data-theme="dark"] a:hover {
-  color: inherit !important;
-}
+```text
+┌─────────────────────────────────────────────────────────────┐
+│  [Package Value Input]  →  [Your Cost: $X.XX]               │
+│     $100                     $2.50                          │
+│                                                             │
+│  • Per-package pricing  • Full coverage  • No fees         │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### File 2: `src/components/blog/ComparisonPostContent.tsx`
+### Approach
 
-Add `data-theme="dark"` to the Fourth Option card div (line 254), so the CSS exclusion applies:
+1. **Reduce max-width** from `max-w-5xl` to `max-w-2xl` (~672px)
 
-```tsx
-<div data-theme="dark" className="not-prose bg-gradient-to-br from-[#1e22aa] to-[#1a1a6e] rounded-xl p-6 md:p-8 text-white mt-6 mb-6">
-```
+2. **Two-column grid layout** (on md+):
+   - Left: Input field with label
+   - Right: Result display with "Your Cost" heading
 
-This ensures all child text inside that card inherits white/cyan colors as specified by the inline Tailwind classes, rather than being overridden by the `.blog-prose` global styles.
+3. **Visual flow enhancement**:
+   - Add arrow or visual connector between input and output
+   - Keep the result prominent with large typography
+   - Bullet points stay below as a compact horizontal row on desktop
 
-### Files changed
-- `src/index.css` — add dark theme exclusion rules
-- `src/components/blog/ComparisonPostContent.tsx` — add `data-theme="dark"` attribute to card
+4. **Styling updates** per design system:
+   - Card: `rounded-2xl border border-gray-200 shadow-lg` 
+   - Input: tighter padding, refined focus states
+   - Result: centered vertically with input
 
+### Files to Edit
+- `src/components/PricingCalculator.tsx` – restructure the calculator card layout
