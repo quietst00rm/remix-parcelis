@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AboutHero from '@/components/AboutHero';
 import AboutMission from '@/components/AboutMission';
 import AboutWhyChoose from '@/components/AboutWhyChoose';
@@ -9,9 +9,6 @@ import AboutCTA from '@/components/AboutCTA';
 import AboutLogos from '@/components/AboutLogos';
 
 const AboutPage: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div className="flex flex-col w-full">

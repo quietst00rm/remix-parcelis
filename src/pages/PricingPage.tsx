@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PricingHero from '@/components/PricingHero';
 import PricingCalculator from '@/components/PricingCalculator';
 import PricingFeatures from '@/components/PricingFeatures';
@@ -9,9 +9,6 @@ import HomeCarriers from '@/components/HomeCarriers';
 import PricingCTA from '@/components/PricingCTA';
 
 const PricingPage: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div className="flex flex-col w-full">

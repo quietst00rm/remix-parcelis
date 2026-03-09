@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import HomeHero from '@/components/HomeHero';
 import HomeValueProps from '@/components/HomeValueProps';
 import HomeSplitFeature from '@/components/HomeSplitFeature';
@@ -11,10 +11,6 @@ import HomeTestimonials from '@/components/HomeTestimonials';
 import HomeCTA from '@/components/HomeCTA';
 
 const HomePage: React.FC = () => {
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div className="flex flex-col w-full">
