@@ -23,7 +23,7 @@ const HomeVideo: React.FC = () => {
         >
           <iframe
             className="absolute inset-0 w-full h-full"
-            src="https://www.youtube.com/embed/TkN1HsoIGhc?modestbranding=1&rel=0&controls=0&showinfo=0&si=2EMEJXldSbsiFQBq"
+            src="https://www.youtube.com/embed/TkN1HsoIGhc?modestbranding=1&rel=0&controls=0&showinfo=0&loop=1&playlist=TkN1HsoIGhc&si=2EMEJXldSbsiFQBq"
             title="How Parcelis Works"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             referrerPolicy="strict-origin-when-cross-origin"
