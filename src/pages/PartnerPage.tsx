@@ -184,6 +184,16 @@ const PartnerHowItWorks: React.FC = () => (
           </div>
         ))}
       </div>
+
+      <div className="mt-14 flex justify-center">
+        <Link
+          to="/affiliate-program"
+          className="bg-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl text-base hover:bg-primary/90 hover:-translate-y-0.5 shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center gap-2 min-h-[44px]"
+        >
+          Sign Up
+          <ArrowRight size={18} strokeWidth={2.5} />
+        </Link>
+      </div>
     </div>
   </section>
 );
