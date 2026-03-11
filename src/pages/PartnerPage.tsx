@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { FileText, Share2, BarChart3, DollarSign, ArrowRight, ArrowDown } from "lucide-react";
 import PartnerCalculator from "@/components/partner/PartnerCalculator";
 import { WhatClientsGet, WhyAgenciesSwitch, IdealPartnerProfile, TrustSignals } from "@/components/partner/PartnerContentSections";
@@ -70,16 +71,25 @@ const PartnerHero: React.FC = () => {
         </HeroReveal>
 
         <HeroReveal delay={0.3} show={show}>
-          <button
-            onClick={() => {
-              const el = document.getElementById("partner-calculator");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="group w-full sm:w-auto border-2 border-white text-white rounded-full px-8 py-3.5 font-bold text-base hover:bg-white hover:text-brand transition-all min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-2"
-          >
-            Revenue Calculator
-            <ArrowDown size={18} strokeWidth={2.5} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-          </button>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              to="/affiliate-program"
+              className="w-full sm:w-auto bg-white text-primary font-semibold rounded-xl px-8 py-3.5 text-base hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 min-h-[44px] inline-flex items-center justify-center gap-2"
+            >
+              Sign Up
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </Link>
+            <button
+              onClick={() => {
+                const el = document.getElementById("partner-calculator");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="group w-full sm:w-auto border-2 border-white/30 text-white rounded-xl px-8 py-3.5 font-medium text-base hover:bg-white/10 hover:border-white transition-all duration-200 min-h-[44px] inline-flex items-center justify-center gap-2"
+            >
+              Revenue Calculator
+              <ArrowDown size={18} strokeWidth={2.5} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+            </button>
+          </div>
         </HeroReveal>
       </div>
 
@@ -174,6 +184,16 @@ const PartnerHowItWorks: React.FC = () => (
           </div>
         ))}
       </div>
+
+      <div className="mt-14 flex justify-center">
+        <Link
+          to="/affiliate-program"
+          className="bg-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl text-base hover:bg-primary/90 hover:-translate-y-0.5 shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center gap-2 min-h-[44px]"
+        >
+          Sign Up
+          <ArrowRight size={18} strokeWidth={2.5} />
+        </Link>
+      </div>
     </div>
   </section>
 );
@@ -219,9 +239,16 @@ const PartnerPage: React.FC = () => {
             <h2 className="font-heading font-extrabold text-white text-3xl md:text-4xl mb-4">
               Ready to Learn More?
             </h2>
-            <p className="text-white/80 text-lg max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/80 text-lg max-w-xl mx-auto leading-relaxed mb-8">
               See how Parcelis can add a new recurring revenue line to your agency — with zero setup and zero risk.
             </p>
+            <Link
+              to="/affiliate-program"
+              className="bg-white text-primary font-semibold px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center gap-2 min-h-[44px]"
+            >
+              Sign Up
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </Link>
           </div>
         </section>
       </RevealSection>
