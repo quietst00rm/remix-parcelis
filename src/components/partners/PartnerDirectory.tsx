@@ -61,10 +61,6 @@ const partners: Partner[] = [
       "TradeLaw Pro specializes in international trade compliance, customs regulations, and consumer protection law for e-commerce businesses shipping across borders.",
     whyWeTrust:
       "TradeLaw Pro ensures our mutual clients stay compliant with shipping regulations in every market, reducing legal exposure and customs delays.",
-    stats: [
-      { value: "40+", label: "Jurisdictions" },
-      { value: "98%", label: "Compliance Rate" },
-    ],
     
     website: "https://example.com",
   },
