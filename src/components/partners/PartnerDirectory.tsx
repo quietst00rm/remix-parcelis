@@ -258,45 +258,7 @@ const PartnerDirectory = () => {
           {partner.description}
         </p>
 
-        {/* ROW 5 — Stat Badges */}
-        <div
-          className="grid mb-4"
-          style={{
-            gridTemplateColumns:
-              partner.stats.length === 3
-                ? "1fr 1fr 1fr"
-                : partner.stats.length === 2
-                ? "1fr 1fr"
-                : "1fr",
-            gap: 8,
-          }}
-        >
-          {partner.stats.map((s, idx) => (
-            <div
-              key={idx}
-              className="text-center"
-              style={{
-                backgroundColor: "#FAFAFA",
-                border: "1px solid #EBEBEB",
-                borderRadius: 8,
-                padding: "8px 12px",
-              }}
-            >
-              <div
-                style={{ fontSize: 14, fontWeight: 700, color: "#101155" }}
-              >
-                {s.value}
-              </div>
-              <div
-                style={{ fontSize: 11, fontWeight: 400, color: "#9CA3AF" }}
-              >
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ROW 6 — Divider */}
+        {/* ROW 5 — Divider */}
         <div
           className="w-full mb-4"
           style={{ height: 1, backgroundColor: "#F0F0F0" }}
