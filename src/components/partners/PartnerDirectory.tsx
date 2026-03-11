@@ -35,10 +35,6 @@ const partners: Partner[] = [
       "SwiftShip provides end-to-end logistics solutions for e-commerce brands, from manufacturer to customer doorstep. Their network spans 20+ countries with specialized handling for fragile and high-value goods.",
     whyWeTrust:
       "SwiftShip has maintained a 99.4% on-time delivery rate across our shared clients. Their real-time tracking integration helps us verify claims faster and reduce disputes.",
-    stats: [
-      { value: "99.4%", label: "On-Time Rate" },
-      { value: "20+", label: "Countries" },
-    ],
     
     website: "https://example.com",
   },
