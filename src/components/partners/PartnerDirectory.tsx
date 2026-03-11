@@ -506,21 +506,6 @@ const PartnerDirectory = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  {selectedPartner.stats.map((s, i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl border border-border bg-secondary/50 p-4 text-center border-l-2 border-l-success"
-                    >
-                      <p className="text-2xl font-bold text-success">
-                        {s.value}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {s.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
 
               </div>
 
