@@ -88,10 +88,6 @@ const partners: Partner[] = [
       "PixelPush creates high-converting post-purchase communication flows that drive repeat revenue. Their data-driven approach has helped merchants achieve an average 4.2x ROI.",
     whyWeTrust:
       "PixelPush ensures customers stay engaged after purchase, which reduces disputes and increases lifetime value across our merchant network.",
-    stats: [
-      { value: "4.2x", label: "Average ROI" },
-      { value: "850+", label: "Merchants" },
-    ],
     
     website: "https://example.com",
   },
