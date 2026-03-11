@@ -101,10 +101,6 @@ const partners: Partner[] = [
       "ShipMetrics analyzes shipping spend across all carriers to identify cost savings opportunities. Their platform has analyzed over 12M shipments, finding an average 18% savings for merchants.",
     whyWeTrust:
       "ShipMetrics data feeds directly into our risk models, helping us price protection more accurately and identify cost optimization opportunities.",
-    stats: [
-      { value: "18%", label: "Avg Savings" },
-      { value: "12M+", label: "Shipments Analyzed" },
-    ],
     
     website: "https://example.com",
   },
