@@ -75,10 +75,6 @@ const partners: Partner[] = [
       "ReturnFlow provides a branded returns experience that converts refund requests into exchanges and store credit, recovering revenue that would otherwise be lost.",
     whyWeTrust:
       "ReturnFlow's approach reduces net refund rates, which complements Parcelis shipping protection by minimizing post-delivery revenue loss for merchants.",
-    stats: [
-      { value: "34%", label: "Exchange Rate" },
-      { value: "2.1x", label: "Repeat Purchase" },
-    ],
     
     website: "https://example.com",
   },
