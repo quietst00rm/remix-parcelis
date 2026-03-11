@@ -71,16 +71,25 @@ const PartnerHero: React.FC = () => {
         </HeroReveal>
 
         <HeroReveal delay={0.3} show={show}>
-          <button
-            onClick={() => {
-              const el = document.getElementById("partner-calculator");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="group w-full sm:w-auto border-2 border-white text-white rounded-full px-8 py-3.5 font-bold text-base hover:bg-white hover:text-brand transition-all min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-2"
-          >
-            Revenue Calculator
-            <ArrowDown size={18} strokeWidth={2.5} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-          </button>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              to="/affiliate-program"
+              className="w-full sm:w-auto bg-white text-primary font-semibold rounded-xl px-8 py-3.5 text-base hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 min-h-[44px] inline-flex items-center justify-center gap-2"
+            >
+              Sign Up
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </Link>
+            <button
+              onClick={() => {
+                const el = document.getElementById("partner-calculator");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="group w-full sm:w-auto border-2 border-white/30 text-white rounded-xl px-8 py-3.5 font-medium text-base hover:bg-white/10 hover:border-white transition-all duration-200 min-h-[44px] inline-flex items-center justify-center gap-2"
+            >
+              Revenue Calculator
+              <ArrowDown size={18} strokeWidth={2.5} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+            </button>
+          </div>
         </HeroReveal>
       </div>
 
