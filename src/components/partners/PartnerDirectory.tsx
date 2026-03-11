@@ -11,11 +11,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 
 /* ── types ── */
-interface PartnerStat {
-  value: string;
-  label: string;
-}
-
 interface Partner {
   id: string;
   name: string;
@@ -24,7 +19,6 @@ interface Partner {
   
   fullDescription: string;
   whyWeTrust: string;
-  stats: PartnerStat[];
   website: string;
   logoUrl?: string;
 }
@@ -41,10 +35,6 @@ const partners: Partner[] = [
       "SwiftShip provides end-to-end logistics solutions for e-commerce brands, from manufacturer to customer doorstep. Their network spans 20+ countries with specialized handling for fragile and high-value goods.",
     whyWeTrust:
       "SwiftShip has maintained a 99.4% on-time delivery rate across our shared clients. Their real-time tracking integration helps us verify claims faster and reduce disputes.",
-    stats: [
-      { value: "99.4%", label: "On-Time Rate" },
-      { value: "20+", label: "Countries" },
-    ],
     
     website: "https://example.com",
   },
@@ -58,10 +48,6 @@ const partners: Partner[] = [
       "ClaimGuard uses AI-driven dispute management to prevent chargebacks before they happen and recover revenue from illegitimate disputes. They process over $300M in protected transactions annually.",
     whyWeTrust:
       "ClaimGuard's proactive approach complements Parcelis shipping protection perfectly — together we cover both transit and post-delivery financial risks for merchants.",
-    stats: [
-      { value: "$300M+", label: "Protected Volume" },
-      { value: "72%", label: "Win Rate" },
-    ],
     
     website: "https://example.com",
   },
@@ -75,10 +61,6 @@ const partners: Partner[] = [
       "TradeLaw Pro specializes in international trade compliance, customs regulations, and consumer protection law for e-commerce businesses shipping across borders.",
     whyWeTrust:
       "TradeLaw Pro ensures our mutual clients stay compliant with shipping regulations in every market, reducing legal exposure and customs delays.",
-    stats: [
-      { value: "40+", label: "Jurisdictions" },
-      { value: "98%", label: "Compliance Rate" },
-    ],
     
     website: "https://example.com",
   },
@@ -93,10 +75,6 @@ const partners: Partner[] = [
       "ReturnFlow provides a branded returns experience that converts refund requests into exchanges and store credit, recovering revenue that would otherwise be lost.",
     whyWeTrust:
       "ReturnFlow's approach reduces net refund rates, which complements Parcelis shipping protection by minimizing post-delivery revenue loss for merchants.",
-    stats: [
-      { value: "34%", label: "Exchange Rate" },
-      { value: "2.1x", label: "Repeat Purchase" },
-    ],
     
     website: "https://example.com",
   },
@@ -110,10 +88,6 @@ const partners: Partner[] = [
       "PixelPush creates high-converting post-purchase communication flows that drive repeat revenue. Their data-driven approach has helped merchants achieve an average 4.2x ROI.",
     whyWeTrust:
       "PixelPush ensures customers stay engaged after purchase, which reduces disputes and increases lifetime value across our merchant network.",
-    stats: [
-      { value: "4.2x", label: "Average ROI" },
-      { value: "850+", label: "Merchants" },
-    ],
     
     website: "https://example.com",
   },
@@ -127,10 +101,6 @@ const partners: Partner[] = [
       "ShipMetrics analyzes shipping spend across all carriers to identify cost savings opportunities. Their platform has analyzed over 12M shipments, finding an average 18% savings for merchants.",
     whyWeTrust:
       "ShipMetrics data feeds directly into our risk models, helping us price protection more accurately and identify cost optimization opportunities.",
-    stats: [
-      { value: "18%", label: "Avg Savings" },
-      { value: "12M+", label: "Shipments Analyzed" },
-    ],
     
     website: "https://example.com",
   },
@@ -288,45 +258,7 @@ const PartnerDirectory = () => {
           {partner.description}
         </p>
 
-        {/* ROW 5 — Stat Badges */}
-        <div
-          className="grid mb-4"
-          style={{
-            gridTemplateColumns:
-              partner.stats.length === 3
-                ? "1fr 1fr 1fr"
-                : partner.stats.length === 2
-                ? "1fr 1fr"
-                : "1fr",
-            gap: 8,
-          }}
-        >
-          {partner.stats.map((s, idx) => (
-            <div
-              key={idx}
-              className="text-center"
-              style={{
-                backgroundColor: "#FAFAFA",
-                border: "1px solid #EBEBEB",
-                borderRadius: 8,
-                padding: "8px 12px",
-              }}
-            >
-              <div
-                style={{ fontSize: 14, fontWeight: 700, color: "#101155" }}
-              >
-                {s.value}
-              </div>
-              <div
-                style={{ fontSize: 11, fontWeight: 400, color: "#9CA3AF" }}
-              >
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ROW 6 — Divider */}
+        {/* ROW 5 — Divider */}
         <div
           className="w-full mb-4"
           style={{ height: 1, backgroundColor: "#F0F0F0" }}
@@ -574,21 +506,6 @@ const PartnerDirectory = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  {selectedPartner.stats.map((s, i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl border border-border bg-secondary/50 p-4 text-center border-l-2 border-l-success"
-                    >
-                      <p className="text-2xl font-bold text-success">
-                        {s.value}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {s.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
 
               </div>
 
