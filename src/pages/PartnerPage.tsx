@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { FileText, Share2, BarChart3, DollarSign, ArrowRight, ArrowDown } from "lucide-react";
 import PartnerCalculator from "@/components/partner/PartnerCalculator";
 import { WhatClientsGet, WhyAgenciesSwitch, IdealPartnerProfile, TrustSignals } from "@/components/partner/PartnerContentSections";
