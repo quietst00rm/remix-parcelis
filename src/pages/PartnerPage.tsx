@@ -239,9 +239,16 @@ const PartnerPage: React.FC = () => {
             <h2 className="font-heading font-extrabold text-white text-3xl md:text-4xl mb-4">
               Ready to Learn More?
             </h2>
-            <p className="text-white/80 text-lg max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/80 text-lg max-w-xl mx-auto leading-relaxed mb-8">
               See how Parcelis can add a new recurring revenue line to your agency — with zero setup and zero risk.
             </p>
+            <Link
+              to="/affiliate-program"
+              className="bg-white text-primary font-semibold px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center gap-2 min-h-[44px]"
+            >
+              Sign Up
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </Link>
           </div>
         </section>
       </RevealSection>
