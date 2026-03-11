@@ -48,10 +48,6 @@ const partners: Partner[] = [
       "ClaimGuard uses AI-driven dispute management to prevent chargebacks before they happen and recover revenue from illegitimate disputes. They process over $300M in protected transactions annually.",
     whyWeTrust:
       "ClaimGuard's proactive approach complements Parcelis shipping protection perfectly — together we cover both transit and post-delivery financial risks for merchants.",
-    stats: [
-      { value: "$300M+", label: "Protected Volume" },
-      { value: "72%", label: "Win Rate" },
-    ],
     
     website: "https://example.com",
   },
