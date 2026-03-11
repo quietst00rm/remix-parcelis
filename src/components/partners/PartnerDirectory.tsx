@@ -11,11 +11,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 
 /* ── types ── */
-interface PartnerStat {
-  value: string;
-  label: string;
-}
-
 interface Partner {
   id: string;
   name: string;
@@ -24,7 +19,6 @@ interface Partner {
   
   fullDescription: string;
   whyWeTrust: string;
-  stats: PartnerStat[];
   website: string;
   logoUrl?: string;
 }
